@@ -1,0 +1,81 @@
+[
+	{
+		"path":"version",
+		"methods":{
+			"GET": {
+				"controller": "controller::version",
+				"method": "get",
+				"in":null,
+				"arg":null,
+				"auth":[],
+				"out":"json",
+				"arguments":[]
+			}
+		}
+	},
+	{
+		"path": "contacts",
+		"methods":{
+			"GET": {
+				"controller": "controller::contacts",
+				"method": "get",
+				"in":null,
+				"arg":null,
+				"auth":[],
+				"out":"json",
+				"arguments": [
+					{"name":"filter_name", "source":"query", "type":"string"},
+					{"name":"filter_number", "source":"query", "type":"string"}
+				]
+			},
+			"POST": {
+				"controller": "controller::contacts",
+				"method": "post",
+				"in":null,
+				"arg":null,
+				"auth":[],
+				"out":"json",
+				"arguments":[
+				]
+			}
+		}
+	},
+	{
+		"path":"contacts/[id:int]",
+		"methods":{
+			"GET": {
+				"controller": "controller::contacts",
+				"method": "info",
+				"in":null,
+				"arg":null,
+				"auth":[],
+				"out":"json",
+				"arguments":[
+					{
+						"name":"id", "source":"uri", "type":"int"
+					}
+				]
+			},
+			"PATCH": {
+				"controller": "controller::contacts",
+				"method": "patch",
+				"in":null,
+				"arg":null,
+				"auth":[],
+				"out":"json",
+				"arguments":[
+				]
+			},
+			"DELETE": {
+				"controller": "controller::contacts",
+				"method": "delete",
+				"in":null,
+				"arg":null,
+				"auth":[],
+				"out":"json",
+				"arguments":[
+				]
+			}
+		}
+	}
+]
