@@ -14,6 +14,7 @@ class argument {
 		string  $_name,
 		string  $_source,
 		int     $_type,
+		bool    $_nullable,
 		bool    $_optional,
 		bool    $_notrim,
 		$_default=null
@@ -22,6 +23,7 @@ class argument {
 		$this->name=$_name;
 		$this->source=$_source;
 		$this->type=$_type;
+		$this->nullable=$_nullable;
 		$this->optional=$_optional;
 		if($this->optional) {
 
@@ -46,6 +48,11 @@ class argument {
 		return $this->type;
 	}
 
+	public function is_nullable() : bool {
+
+		return $this->nullable;
+	}
+
 	public function is_notrim() : bool {
 
 		return $this->notrim;
@@ -65,6 +72,7 @@ class argument {
 	private string      $name;
 	private string      $source;
 	private int         $type;
+	private bool        $nullable;
 	private bool        $notrim;
 	private bool        $optional;
 	private             $default;

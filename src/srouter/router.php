@@ -1,6 +1,10 @@
 <?php
 namespace srouter;
 
+/**
+*the router. You would expect this to be documented, right?
+*/
+
 class router {
 
 	private const log_module="srouter";
@@ -45,8 +49,7 @@ class router {
 			if(null===$route) {
 
 				$this->logger->notice("failed to map, will throw", self::log_module);
-				//TODO: Throw shit
-				die("WILL THROW!");
+				throw new \srouter\exception\not_found();
 			}
 
 			if(null!==$route->get_in_transformer()) {
@@ -68,8 +71,14 @@ class router {
 			if(null!==$route->get_argument_extractor()) {
 
 				$this->logger->notice("will extract arguments with '".$route->get_argument_extractor()."'", self::log_module);
-				$arguments=$this->extract_arguments($route->get_argument_extractor(), $request, $route->uri_parameters);
+				$arguments=$this->extract_arguments(
+					$route->get_argument_extractor(), 
+					$route->get_arguments(),
+					$request, 
+					$route->uri_parameters
+				);
 			}
+
 
 			//build controller...
 			$controller=$this->build_controller($route->get_classname());
@@ -79,25 +88,34 @@ class router {
 				throw new \Exception("method does not exist for controller");
 			}
 
-			//ensure the parameters are fully mapped...
+			//finally, sort arguments as they appear on the controller....
 			$reflector=new \ReflectionMethod($controller, $route->get_methodname());
-			$parameters=$reflector->getParameters();
+			foreach($reflector->getParameters() as $parameter) {
+		
+				$names=["_".$parameter->get_name(), $parameter->get_name()];
+				foreach($names as $name) {
 
-			if(count($arguments) != count($parameters)) {
+					if(array_key_exists($name, $arguments)) {
 
-				$this->logger->warning("method arguments don't match signature on '".$route->get_methodname()."' in '".$route->get_classname()."'", self::log_module);
-				throw new \Exception("argument mismatch");
+						$sent_arguments[]=$arguments[$name];
+						continue;
+					}
+
+					$this->logger->info("cannot find parameter for '".$parameter->get_name()."'", self::log_module);
+					//TODO: Maybe use other type???
+					throw new \srouter\exception\exception($parameter->get_name());
+				}
 			}
 
-			//map parameters, in a sexy way, so they can be in any order...
-			//TODO:
+			if(count($reflector->getParameters()) !== count($sent_arguments)) {
 
-			//TODO: Make sure there are no parameters missing (by name, in this case)
+				throw new \srouter\exception\bad_dependency("no parameters could be extracted when the prototype demands them");
+			}
 
 			//execute...
 			$methodname=$route->get_methodname();
 			$this->logger->info("will perform execution now...", self::log_module);
-			$result=$controller->$methodname(...$arguments);
+			$result=$controller->$methodname(...$sent_arguments);
 			if(! ($result instanceof response)) {
 
 				$this->logger->warning("returned value is not a response!", self::log_module);
@@ -128,12 +146,12 @@ class router {
 
 		if(null===$controller) {
 
-			throw new \Exception("could not build controller '$_classname'");
+			throw new \srouter\exception\bad_dependency("could not build controller '$_classname'");
 		}
 
 		if(!is_object($controller)) {
 
-			throw new \Exception("controller '$_classname' must be an object");
+			throw new \srouter\exception\bad_dependency("controller '$_classname' must be an object");
 		}
 
 		return $controller;
@@ -147,8 +165,7 @@ class router {
 		$factory=$this->in_transformer_factory->build($_key);
 		if(null===$factory) {
 
-			//TODO: Throw fatal.
-			throw new \Exception("fatal error, cannot build request transformer");
+			throw new \srouter\exception\bad_dependency("fatal error, cannot build request transformer");
 		}
 
 		return $factory->transform($_request);
@@ -164,23 +181,22 @@ class router {
 			$this->logger->info("will authorize using $key", self::log_module);
 			$authorizer=$this->authorizer_factory->build($key);
 
-			if(null===$authorizer) {
-				//TODO: Throw fatal.
-				throw new \Exception("fatal error, cannot build authorizer");
+ 			if(null===$authorizer) {
+
+				throw new \srouter\exception\bad_dependency("fatal error, cannot build authorizer");
 			}
 
-			//TODO: What if there's no authorizer from the factory? how to signal?
 			if(!$authorizer->authorize($_request)) {
 
 				$this->logger->notice("$key authorization failed", self::log_module);
-				//TODO: Should be another exception.
-				throw new \Exception("failed to authorize using $key");
+				throw new \srouter\exception\unauthorized("failed to authorize using $key");
 			}
 		}
 	}
 
 	private function extract_arguments(
 		string $_argument_extractor,
+		array $_arguments,
 		interfaces\request $_request,
 		array $_uri_parameters
 	) {
@@ -188,18 +204,21 @@ class router {
 		$extractor=$this->argument_extractor_factory->build($_argument_extractor);
 		if(null===$extractor) {
 
-			throw new \Exception("cannot build argument extractor");
+			throw new \srouter\exception\bad_dependency("cannot build argument extractor");
 		}
 
-		//TODO:
-		//What this must do is... grab argument list from the path prototype.
-		//Use this argument list on the request!
+		$result=[];
 
-		//TODO: have a toolset that can be used like "from_query_string",
-		//"from_urlencoded", "from_json", "from_uri" and then recombined by the
-		//user in any way.
+		foreach($_arguments as $argument) {
 
-		return $extractor->extract($_request, $_uri_parameters);
+			$result[$argument->get_name()]=$extractor->extract(
+				$argument,
+				$_request,
+				$_uri_parameters
+			);
+		}
+
+		return $result;
 	}
 
 	private \log\logger_interface               $logger;

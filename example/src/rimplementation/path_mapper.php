@@ -64,6 +64,7 @@ class path_mapper implements \srouter\interfaces\path_mapper {
 					$_item->name,
 					$_item->source,
 					$type,
+					$nullable,
 					$optional,
 					$notrim,
 					$default

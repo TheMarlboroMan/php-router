@@ -32,7 +32,7 @@
 				"controller": "controller::contacts",
 				"method": "post",
 				"in":null,
-				"arg":null,
+				"arg":"json",
 				"auth":[],
 				"out":"json",
 				"arguments":[
@@ -47,7 +47,7 @@
 				"controller": "controller::contacts",
 				"method": "info",
 				"in":null,
-				"arg":null,
+				"arg":"json",
 				"auth":[],
 				"out":"json",
 				"arguments":[
@@ -60,7 +60,7 @@
 				"controller": "controller::contacts",
 				"method": "patch",
 				"in":null,
-				"arg":null,
+				"arg":"json",
 				"auth":[],
 				"out":"json",
 				"arguments":[

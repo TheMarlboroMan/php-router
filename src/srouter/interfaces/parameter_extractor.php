@@ -2,11 +2,11 @@
 namespace srouter\interfaces;
 
 /***
-*describes a class that can take a request and an array of "parameter" and
-*return such parameters in a map.
+*describes a class that can take input data and return a parameter value to
+*call a controller method.
 */
 
 interface parameter_extractor {
 
-	public function extract(request $_request, array $_argument) : array;
+	public function extract(\srouter\argument $_argument, request $_request, array $_uri_params);
 }
