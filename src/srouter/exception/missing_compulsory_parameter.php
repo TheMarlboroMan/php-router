@@ -9,6 +9,6 @@ class missing_compulsory_parameter extends exception {
 
 	public function __construct(string $_name) {
 
-		parent::__construct("missing parameter '$_name'");
+		parent::__construct("missing compulsory parameter '$_name'");
 	}
 };

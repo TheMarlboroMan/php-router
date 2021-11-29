@@ -54,20 +54,43 @@ class path_mapper implements \srouter\interfaces\path_mapper {
 
 		$path=$family->$_method;
 
-		var_dump($path);
-		$arguments=array_map(
-			function(\stdClass $_item) : \srouter\argument {
+		$optional_val=function(\stdClass $_item, string $_prop, $default_val) {
 
-				//TODO: Extract these!!
+			return property_exists($_item, $_prop)
+				? $_item->$_prop
+				: $default_val;
+		};
+
+		$arguments=array_map(
+			function(\stdClass $_item) use ($optional_val): \srouter\argument {
+
+				$argtype=$optional_val($_item, "type", "any");
+				switch($argtype) {
+
+					case "any":
+						$type=\srouter\argument::type_any; break;
+					case "int":
+						$type=\srouter\argument::type_int; break;
+					case "string":
+						$type=\srouter\argument::type_string; break;
+					case "array":
+						$type=\srouter\argument::type_array; break;
+					case "double":
+						$type=\srouter\argument::type_double; break;
+					case "bool":
+						$type=\srouter\argument::type_bool; break;
+					default:
+						throw new \Exception("unkown argument type '$argtype'");
+				}
 
 				return new \srouter\argument(
 					$_item->name,
 					$_item->source,
 					$type,
-					$nullable,
-					$optional,
-					$notrim,
-					$default
+					$optional_val($_item, "nullable", false),
+					$optional_val($_item, "optional", false),
+					$optional_val($_item, "notrim", false),
+					$optional_val($_item, "default", null)
 				);
 			},
 			$path->arguments

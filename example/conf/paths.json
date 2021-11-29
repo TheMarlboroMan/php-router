@@ -20,12 +20,12 @@
 				"controller": "controller::contacts",
 				"method": "get",
 				"in":null,
-				"arg":null,
+				"arg":"query",
 				"auth":[],
 				"out":"json",
 				"arguments": [
-					{"name":"filter_name", "source":"query", "type":"string"},
-					{"name":"filter_number", "source":"query", "type":"string"}
+					{"name":"filter_name", "source":"query", "type":"string", "nullable":true},
+					{"name":"filter_number", "source":"query", "type":"string", "nullable": true}
 				]
 			},
 			"POST": {
@@ -36,6 +36,9 @@
 				"auth":[],
 				"out":"json",
 				"arguments":[
+					{"name":"name", "source":"json", "type":"string"},
+					{"name":"phone", "source":"json", "type":"string"},
+					{"name":"company", "source":"json", "type":"string", "optional":true, "default":"-"}
 				]
 			}
 		}
@@ -64,6 +67,10 @@
 				"auth":[],
 				"out":"json",
 				"arguments":[
+					{"name":"id", "source":"uri", "type":"int"},
+					{"name":"name", "source":"json", "type":"string", "optional":true, "default":null},
+					{"name":"phone", "source":"json", "type":"string", "optional":true, "default":null},
+					{"name":"company", "source":"json", "type":"string", "optional":true, "default":null}
 				]
 			},
 			"DELETE": {
@@ -74,8 +81,10 @@
 				"auth":[],
 				"out":"json",
 				"arguments":[
+					{"name":"id", "source":"uri", "type":"int"},
 				]
 			}
 		}
 	}
 ]
+

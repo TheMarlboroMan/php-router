@@ -5,8 +5,14 @@ class parameter_extractor_factory implements \srouter\interfaces\parameter_extra
 
 	public function build(
 		string $_name
-	) : \srouter\interfaces\parameter_extractor {
+	) : ?\srouter\interfaces\parameter_extractor {
 
-		die("ARGUMENT EXTRACTOR NEEDS TO BUILD $_name");
+		switch($_name) {
+
+			case "query": return new \rimplementation\query_only_parameter_extractor();
+			case "json": return new \rimplementation\json_parameter_extractor();
+		}
+
+		return null;
 	}
 }

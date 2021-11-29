@@ -60,5 +60,23 @@ class request implements \srouter\interfaces\request {
 		return $this->request->get_body_by_name($_name);
 	}
 
+	//!Must return true if a named query string value exists.
+	public function         has_query(string $_name) : bool {
+
+		return $this->request->has_query($_name);
+	}
+
+	//!Must return true the query string named value
+	public function         get_query(string $_name) : string {
+
+		return $this->request->query($_name);
+	}
+
+	//!Must return the full query string.
+	public function         get_query_string() : string {
+
+		return $this->request->get_query_string();
+	}
+
 	private                 \request\request $request;
 }

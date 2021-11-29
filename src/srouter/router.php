@@ -16,7 +16,7 @@ class router {
 		interfaces\path_mapper              $_path_mapper,
 		interfaces\in_transformer_factory   $_in_transformer_factory,
 		interfaces\authorizer_factory       $_authorizer_factory,
-		interfaces\argument_extractor_factory $_argument_extractor_factory,
+		interfaces\parameter_extractor_factory $_parameter_extractor_factory,
 		interfaces\controller_factory       $_controller_factory
 	) {
 
@@ -26,7 +26,7 @@ class router {
 		$this->request_factory=$_request_factory;
 		$this->in_transformer_factory=$_in_transformer_factory;
 		$this->authorizer_factory=$_authorizer_factory;
-		$this->argument_extractor_factory=$_argument_extractor_factory;
+		$this->parameter_extractor_factory=$_parameter_extractor_factory;
 		$this->controller_factory=$_controller_factory;
 	}
 
@@ -58,9 +58,6 @@ class router {
 				$request=$this->transform_request($route->get_in_transformer(), $request);
 			}
 
-			var_dump($route);
-			die();
-
 			if(count($route->get_authorizers())) {
 
 				$this->logger->info("will perform authorization", self::log_module);
@@ -72,10 +69,10 @@ class router {
 
 				$this->logger->notice("will extract arguments with '".$route->get_argument_extractor()."'", self::log_module);
 				$arguments=$this->extract_arguments(
-					$route->get_argument_extractor(), 
+					$route->get_argument_extractor(),
 					$route->get_arguments(),
-					$request, 
-					$route->uri_parameters
+					$request,
+					$route->get_uri_parameters()
 				);
 			}
 
@@ -91,20 +88,27 @@ class router {
 			//finally, sort arguments as they appear on the controller....
 			$reflector=new \ReflectionMethod($controller, $route->get_methodname());
 			foreach($reflector->getParameters() as $parameter) {
-		
-				$names=["_".$parameter->get_name(), $parameter->get_name()];
-				foreach($names as $name) {
 
-					if(array_key_exists($name, $arguments)) {
+				$this->logger->info("will attempt to find value for argument '".$parameter->getName()."'", self::log_module);
 
-						$sent_arguments[]=$arguments[$name];
-						continue;
-					}
+				//i always use underscores for parameters...
+				$name=substr($parameter->getName(), 1);
+				if(array_key_exists($name, $arguments)) {
 
-					$this->logger->info("cannot find parameter for '".$parameter->get_name()."'", self::log_module);
-					//TODO: Maybe use other type???
-					throw new \srouter\exception\exception($parameter->get_name());
+					$sent_arguments[]=$arguments[$name];
+					continue;
 				}
+
+				$name=$parameter->getName();
+				if(array_key_exists($name, $arguments)) {
+
+					$sent_arguments[]=$arguments[$name];
+					continue;
+				}
+
+				$this->logger->info("cannot find parameter for '".$parameter->getName()."'", self::log_module);
+				//TODO: Maybe use other type???
+				throw new \srouter\exception\exception("cannot find parameter for argument '".$parameter->getName()."'");
 			}
 
 			if(count($reflector->getParameters()) !== count($sent_arguments)) {
@@ -201,7 +205,7 @@ class router {
 		array $_uri_parameters
 	) {
 
-		$extractor=$this->argument_extractor_factory->build($_argument_extractor);
+		$extractor=$this->parameter_extractor_factory->build($_argument_extractor);
 		if(null===$extractor) {
 
 			throw new \srouter\exception\bad_dependency("cannot build argument extractor");
@@ -227,6 +231,6 @@ class router {
 	private interfaces\request_factory          $request_factory;
 	private interfaces\in_transformer_factory   $in_transformer_factory;
 	private interfaces\authorizer_factory       $authorizer_factory;
-	private interfaces\argument_extractor_factory $argument_extractor_factory;
+	private interfaces\parameter_extractor_factory $parameter_extractor_factory;
 	private interfaces\controller_factory       $controller_factory;
 }

@@ -29,7 +29,7 @@ class parameter_maker {
 
 			if(!$_argument->is_optional()) {
 
-				throw new \srouter\exception\missing_parameter($_argument->get_name());
+				throw new \srouter\exception\missing_compulsory_parameter($_argument->get_name());
 			}
 
 			$_value=$_argument->get_default();
@@ -42,15 +42,15 @@ class parameter_maker {
 		}
 
 		try {
-	
+
 			$this->type_check($_value, $_argument->get_type());
 		}
 		catch(\srouter\exception\bad_parameter_type $e) {
 
 			throw new \srouter\exception\bad_parameter_type("bad parameter type for '".$_argument->get_name()."'", 0, $e);
 		}
-		
-		return $_argument->is_notrim() 
+
+		return $_argument->is_notrim()
 			? $_value
 			: $this->trim($_value);
 	}
@@ -64,27 +64,34 @@ class parameter_maker {
 		array $_parameters
 	) {
 
+		var_dump($_parameters);
+		die();
 		//TODO TODO TODO TODO TODO.
 		die("FIND URI PARAMETER");
 	}
 
+/**
+*attempts to find a query string parameter and returns null if cannot find it.
+*/
+
 	public function	find_query_parameter(
-		string $_name, 
+		string $_name,
 		\srouter\interfaces\request $_request
 	) {
 
-		//TODO TODO TODO TODO TODO.
-		die("FIND QUERY PARAMETER");
+		return $_request->has_query($_name)
+			? $_request->get_query($_name)
+			: null;
 	}
 
 	private function type_check(
-		$_value, 
+		$_value,
 		int $_type
 	) : void {
 
 		switch($_type) {
 
-			case \srouter\argument::type_any: 
+			case \srouter\argument::type_any:
 				return;
 			case \srouter\argument::type_int:
 				if(is_int($_value)) {
@@ -119,7 +126,7 @@ class parameter_maker {
 
 			return trim($_value);
 		}
-		
+
 		if(is_array($_value)) {
 
 			foreach($_value as $key => $val) {

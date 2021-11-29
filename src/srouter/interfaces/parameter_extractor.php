@@ -8,5 +8,9 @@ namespace srouter\interfaces;
 
 interface parameter_extractor {
 
-	public function extract(\srouter\argument $_argument, request $_request, array $_uri_params);
+	public function extract(
+		\srouter\argument $_argument,
+		\srouter\interfaces\request $_request,
+		array $_uri_params
+	);
 }

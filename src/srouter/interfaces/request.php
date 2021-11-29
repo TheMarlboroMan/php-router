@@ -21,4 +21,13 @@ interface request {
 
 	//!Must return the multipart body fragment as a scalar.
 	public function         get_part(string $_name) : string;
+
+	//!Must return true if a named query string value exists.
+	public function         has_query(string $_name) : bool;
+
+	//!Must return true the query string named value
+	public function         get_query(string $_name) : string;
+
+	//!Must return the full query string.
+	public function         get_query_string() : string;
 };

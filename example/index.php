@@ -60,7 +60,7 @@ $in_transformer_factory=new \rimplementation\factory\in_transformer_factory();
 $authorizer_factory=new \rimplementation\factory\authorizer_factory();
 
 //we want to extract arguments from the request.
-$argument_extractor_factory=new \rimplementation\factory\argument_extractor_factory();
+$parameter_extractor_factory=new \rimplementation\factory\parameter_extractor_factory();
 
 //next we want to build the controller...
 $controller_factory=new \rimplementation\factory\controller_factory();
@@ -77,7 +77,7 @@ $router=new \srouter\router(
 	$path_mapper,
 	$in_transformer_factory,
 	$authorizer_factory,
-	$argument_extractor_factory,
+	$parameter_extractor_factory,
 	$controller_factory
 );
 
