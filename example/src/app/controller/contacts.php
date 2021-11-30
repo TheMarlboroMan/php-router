@@ -12,7 +12,7 @@ class contacts extends controller {
 
 		$contacts=array_filter(
 			$rolodex->get_all(),
-			function(\app\rolodex_contact $_node) use ($_filter_name, $_filter_number) {
+			function(\rolodex_contact $_node) use ($_filter_name, $_filter_number) {
 
 				$name_ok=true;
 				if(null !== $_filter_name) {
@@ -45,7 +45,7 @@ class contacts extends controller {
 
 		$rolodex=$this->dc->get_rolodex();
 
-		$entry=new \app\rolodex_contact();
+		$entry=new \rolodex_contact();
 		$entry->set_name($_name)
 			->set_phone($_phone)
 			->set_company($_company);
