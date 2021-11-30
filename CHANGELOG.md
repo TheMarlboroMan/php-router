@@ -11,6 +11,7 @@ Changes will be documented under Added, Changed, Deprecated, Removed, Fixed or S
 
 ## Unreleased
 ### Pending
+- Document every class, function and interface.
 - Specify out_transformers for exception handlers.
 
 ## [v0.1.0]: 2021-11-30
