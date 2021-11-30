@@ -64,8 +64,8 @@ $path_mapper=new \rimplementation\path_mapper(__DIR__."/conf/paths.json");
 //after that, maybe we want to transform the request body, which may include decyphering.
 $in_transformer_factory=new \rimplementation\factory\in_transformer_factory();
 
-//then we may want to performP authorization...
-$authorizer_factory=new \rimplementation\factory\authorizer_factory();
+//then we may want to perform authorization... We inject our stuff in.
+$authorizer_factory=new \rimplementation\factory\authorizer_factory($dc);
 
 //we want to extract arguments from the request.
 $parameter_extractor_factory=new \rimplementation\factory\parameter_extractor_factory();

@@ -78,5 +78,15 @@ class request implements \srouter\interfaces\request {
 		return $this->request->get_query_string();
 	}
 
+	public function         has_header(string $_name) : bool {
+
+		return $this->request->has_header($_name);
+	}
+
+	public function         get_header(string $_name) : string {
+
+		return $this->request->header($_name);
+	}
+
 	private                 \request\request $request;
 }

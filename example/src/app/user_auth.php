@@ -95,7 +95,7 @@ class user_auth {
 */
 	public function get(
 		string $_token
-	) : auth_node {
+	) : ?auth_node {
 
 		$found=array_filter(
 			$this->list,

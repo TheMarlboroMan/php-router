@@ -12,12 +12,20 @@ class authorizer_factory implements \srouter\interfaces\authorizer_factory {
 
 	public function build(
 		string $_name
-	) : \srouter\interfaces\authorizer {
+	) : ?\srouter\interfaces\authorizer {
 
-		return
-		die("AUTHORIZER FACTORY NEEDS TO BUILD $_name");
+		switch($_name) {
+
+			case "logged_in":
+				return new \rimplementation\logged_in_auth(
+					$this->dc->get_app_logger(),
+					$this->dc->get_user_auth()
+				);
+			break;
+		}
+
+		return null;
 	}
 
 	private \app\dependency_container $dc;
-
 }
