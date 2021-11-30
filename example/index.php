@@ -58,7 +58,7 @@ $logger=new \log\file_logger(
 $request_factory=new \rimplementation\factory\request_factory();
 
 //next we need to be able to infer a path from an uri and a method
-$uri_transformer=new \rimplementation\uri_transformer("/srouter/example/");
+$uri_transformer=new \rimplementation\uri_transformer("/php-router/example/");
 $path_mapper=new \rimplementation\path_mapper(__DIR__."/conf/paths.json");
 
 //after that, maybe we want to transform the request body, which may include decyphering.
@@ -76,6 +76,9 @@ $controller_factory=new \rimplementation\factory\controller_factory($dc);
 //with the controller output we may want to transform it ...
 $out_transformer_factory=new \rimplementation\factory\out_transformer_factory();
 
+//and maybe something will fail so...
+$exception_handler_factory=new \rimplementation\factory\exception_handler_factory();
+
 //and that should be it: let's build the router with all this stuff...
 $router=new \srouter\router(
 	$logger,
@@ -86,7 +89,8 @@ $router=new \srouter\router(
 	$authorizer_factory,
 	$parameter_extractor_factory,
 	$controller_factory,
-	$out_transformer_factory
+	$out_transformer_factory,
+	$exception_handler_factory
 );
 
 //And that's it, we can leave now.

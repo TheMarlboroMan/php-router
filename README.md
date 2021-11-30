@@ -1,9 +1,5 @@
 # php-router
 
-# TODO:
-
-- add custom exception handling
-
 ## what is this?
 
 Well a barebones router of course. This component should be able to grab a request, map it to an execution context, extract whatever parameters are specified for that context and execute them.
@@ -36,6 +32,7 @@ The kind of things you are supposed to provide are:
 - something to build controllers
 - something to build parameter extractors and the parameters extractors themselves.
 - something to build output transformers and the output transformers themselves.
+- something to build error handlers and the error handlers themselves.
 
 These almost always come in pairs of "a factory" and "stuff the factory builds". These are supposed to be evil multi-factories that you pass a key in and they return an object that satisfies the interface. The implementor controls these keys and what kind of objects can be built with them. Most factories can return null to indicate that nothing with that key is to be built (and probably crash later).
 
@@ -72,6 +69,14 @@ You may provide a factory to build objects that can take a request and extract p
 ### output transformers
 
 Once your controller returns that loose response, you must provide a factory of objects that can take these loose responses and turn them into real http_responses.
+
+### error handlers
+
+The router will always have a default error handler. When the router has been built, you can add additional handlers through a call to "add_exception_handler". Routes can also define their own specific handlers.
+
+There's a strong guarantee that every exception or error thrown inside router::route will be caught automatically by the router. When caught, the handlers attempt to handle the exception in this order: route specific, manually added handlers and the default handler (that will always handle everything).
+
+Handlers will receive an Error or Exception and can test them with instanceof to determine specificically what happened.
 
 ## the example
 

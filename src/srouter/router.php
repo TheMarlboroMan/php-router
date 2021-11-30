@@ -18,7 +18,8 @@ class router {
 		interfaces\authorizer_factory       $_authorizer_factory,
 		interfaces\parameter_extractor_factory $_parameter_extractor_factory,
 		interfaces\controller_factory       $_controller_factory,
-		interfaces\out_transformer_factory  $_out_transformer_factory
+		interfaces\out_transformer_factory  $_out_transformer_factory,
+		interfaces\exception_handler_factory $_exception_handler_factory
 	) {
 
 		$this->logger=$_logger;
@@ -30,6 +31,20 @@ class router {
 		$this->parameter_extractor_factory=$_parameter_extractor_factory;
 		$this->controller_factory=$_controller_factory;
 		$this->out_transformer_factory=$_out_transformer_factory;
+		$this->exception_handler_factory=$_exception_handler_factory;
+		$this->add_exception_handler(new \srouter\default_exception_handler($this->logger));
+	}
+
+/**
+*adds an exception handler that will be executed before the defaults, but after any route
+*specific ones.
+*/
+
+	public function							add_exception_handler(
+			\srouter\interfaces\exception_handler $_e
+	) {
+
+		$this->exception_handlers[]=$_e;
 	}
 
 	public function                         route() : \srouter\http_response {
@@ -134,11 +149,11 @@ class router {
 		}
 		catch(\Exception $e) {
 
-			$this->handle_error($e);
+			return $this->handle_error($e, $request, $route);
 		}
 		catch(\Error $e) {
 
-			$this->handle_error($e);
+			return $this->handle_error($e, $request, $route);
 		}
 	}
 
@@ -239,21 +254,51 @@ class router {
 		return $transformer->transform($_result);
 	}
 
+/**
+*handles the error and ultimately returns an error response to the browser.
+*let us assume that there will always be a request. So far.
+*/
+
 	private function handle_error(
-		$_exception
+		$_exception,
+		\srouter\interfaces\request $_request,
+		?\srouter\route $_route
 	) {
+		
+		if(null!==$_route) {
+				
+			//add route exception handlers...
+			foreach($_route->get_exception_handlers() as $handler_name) {
 
-		//TODO: here is where the hot is
+				$this->add_exception_handler(
+					//this might throw. One would be crazy to do so.
+					$this->exception_handler_factory->build_exception_handler($handler_name)
+				);
+			}
+		}
 
-			$this->logger->error($e->getMessage(), self::log_module);
-			//TODO: See about that...
-			//TODO: Sure, how is this shit transformed??
-			return new \srouter\http_response(500, [], "ERROR");
-			$this->logger->error("(at ".$e->getFile().":".$e->getLine().") ".$e->getMessage(), self::log_module);
-			//TODO: See about that...
-			//TODO: Sure, how is this shit transformed??
-			return new \srouter\http_response(500, [], "ERROR");
+		while(true) {
+			
+			//pop handlers until somebody responds. It is assumed that the default
+			//one will always be there.
+			$handler=array_pop($this->exception_handlers);
 
+			if($_exception instanceof \Error) {
+
+				$response=$handler->handle_error($_exception, $_request, $_route);
+				if(null!==$response) {
+					return $response;
+				}
+			}
+
+			if($_exception instanceof \Exception) {
+
+				$response=$handler->handle_exception($_exception, $_request, $_route);
+				if(null!==$response) {
+					return $response;
+				}
+			}
+		}
 	}
 
 	private \log\logger_interface               $logger;
@@ -265,4 +310,6 @@ class router {
 	private interfaces\parameter_extractor_factory $parameter_extractor_factory;
 	private interfaces\controller_factory       $controller_factory;
 	private interfaces\out_transformer_factory  $out_transformer_factory;
+	private interfaces\exception_handler_factory $exception_handler_factory;
+	private array								$exception_handlers=[];
 }

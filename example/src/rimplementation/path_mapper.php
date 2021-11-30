@@ -61,6 +61,15 @@ class path_mapper implements \srouter\interfaces\path_mapper {
 				: $default_val;
 		};
 
+		//check these properties exist.
+		foreach(["controller", "method", "out", "arg"] as $prop) {
+
+			if(!property_exists($path, "controller")) {
+
+				throw new \Exception("missing '$prop' property when mapping paths");
+			}
+		}
+
 		$arguments=array_map(
 			function(\stdClass $_item) use ($optional_val): \srouter\argument {
 
@@ -96,8 +105,6 @@ class path_mapper implements \srouter\interfaces\path_mapper {
 			$path->arguments
 		);
 
-		//TODO: check these properties exist.
-
 		return new \srouter\route(
 			$path->controller,
 			$path->method,
@@ -110,9 +117,10 @@ class path_mapper implements \srouter\interfaces\path_mapper {
 				},
 				$match->get_parameters()
 			),
-			$path->auth,
-			$path->in,
-			$path->arg
+			$optional_val($path, "auth", []),
+			$optional_val($path, "in", null),
+			$path->arg,
+			$optional_val($path, "err", [])
 		);
 	}
 

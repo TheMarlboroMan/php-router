@@ -2,11 +2,11 @@
 namespace srouter;
 
 /**
-*defines a route obtained by a path mapper, indicating which class must be
-*instantiated, which method to call and what parameters could be inferred from
-*the path itself. These parameters are an array of "uri_parameter".
-*The other things are keys to be passed to the respective factories. A value
-*of null (when possible) will mean "don't even bother in building this part".
+*defines a route obtained by a path mapper. Indicates the controller and method
+*to invoke, a description of the method arguments, the names of out transformer,
+*authorizers, in_transformers, argument extractor and exception handlers and 
+*also any parameters obtained directly from the url. Nullable values will
+*be accepted by the router. Non nullable ones will surely crash.
 */
 
 class route {
@@ -14,12 +14,13 @@ class route {
 	public function __construct(
 		string $_classname,
 		string $_methodname,
-		array $_arguments,
+		array $_arguments, //array of \sroute\argument!!
 		string $_out_transformer,
 		array $_parameters=[],
 		array $_authorizers=[],
 		?string $_in_transformer,
-		?string $_argument_extractor
+		?string $_argument_extractor,
+		array $_exception_handlers=[]
 	) {
 
 		$this->classname=$_classname;
@@ -30,6 +31,7 @@ class route {
 		$this->authorizers=$_authorizers;
 		$this->argument_extractor=$_argument_extractor;
 		$this->out_transformer=$_out_transformer;
+		$this->exception_handlers=$_exception_handlers;
 	}
 
 	public function get_classname() :  string {
@@ -72,6 +74,11 @@ class route {
 		return $this->argument_extractor;
 	}
 
+	public function get_exception_handlers() : array {
+
+		return $this->exception_handlers;
+	}
+
 
 	private string   $classname;
 	private string   $methodname;
@@ -81,4 +88,5 @@ class route {
 	private array    $authorizers=[];
 	private ?string  $in_transformer;
 	private ?string  $argument_extractor;
+	private array    $exception_handlers;
 }
