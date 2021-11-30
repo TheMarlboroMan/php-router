@@ -3,6 +3,10 @@ namespace rolodex;
 
 class rolodex {
 
+/**
+*class constructor
+*/
+
 	public function __construct(
 		string $_filename
 	) {
@@ -13,10 +17,18 @@ class rolodex {
 		$this->read($_filename);
 	}
 
+/**
+*retrieves all contacts in the rolodex file.
+*/
+
 	public function get_all() : array {
 
 		return $this->list;
 	}
+
+/**
+*creates a new entry in the rolodex
+*/
 
 	public function create(
 		\rolodex\rolodex_contact $_contact
@@ -30,6 +42,11 @@ class rolodex {
 		$_contact->set_id($this->next_id++);
 		$this->write($this->filename);
 	}
+
+/**
+*returns a copy of the contact by id or null if no contact by that id can be
+*found
+*/
 
 	public function find_by_id(
 		int $_id
@@ -51,6 +68,10 @@ class rolodex {
 		return clone array_shift($result);
 	}
 
+/**
+*updates a rolodex contact
+*/
+
 	public function patch(
 		\rolodex\rolodex_contact $_contact
 	) {
@@ -64,6 +85,10 @@ class rolodex {
 		$contact=$_contact;
 		$this->write($this->filename);
 	}
+
+/**
+*removes a rolodex contact
+*/
 
 	public function delete(
 		\rolodex\rolodex_contact $_contact

@@ -7,6 +7,7 @@ class in_transformer_factory implements \srouter\interfaces\in_transformer_facto
 		string $_name
 	) : \srouter\interfaces\in_transformer {
 
-		die("IN TRANSFORMER NEEDS TO BUILD $_name");
+		throw new \Exception("there are no input transformers, actually");
+		return null;
 	}
 }

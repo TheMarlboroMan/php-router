@@ -1,6 +1,11 @@
 <?php
 namespace app;
 
+/**
+*absolutely not production-ready dependency container, but will do for this
+*small example.
+*/
+
 class dependency_container {
 
 	public function __construct(
@@ -47,9 +52,21 @@ class dependency_container {
 		return $this->user_auth;
 	}
 
+	public function get_rolodex() : \rolodex\rolodex {
+
+		if(null===$this->rolodex) {
+
+			$rolodex_file=$this->dir."/data/rolodex.dat";
+			$this->rolodex=new \rolodex\rolodex($rolodex_file);
+		}
+
+		return $this->rolodex;
+	}
+
 	private string                  $dir;
 	private ?\log\logger_interface  $app_logger=null;
 	private ?\app\user_list         $user_list=null;
 	private ?\app\user_auth         $user_auth=null;
+	private ?\rolodex\rolodex       $rolodex=null;
 
 }
