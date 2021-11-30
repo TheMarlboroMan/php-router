@@ -8,5 +8,5 @@ namespace srouter\interfaces;
 
 interface parameter_extractor_factory {
 
-	public function build(string $_name) : ?parameter_extractor;
+	public function build_parameter_extractor(string $_name) : ?parameter_extractor;
 }

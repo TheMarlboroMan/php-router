@@ -67,7 +67,7 @@
 				"controller": "controller::contacts",
 				"method": "info",
 				"in":null,
-				"arg":"json",
+				"arg":"uri",
 				"auth":["logged_in"],
 				"out":"json",
 				"arguments":[
@@ -94,7 +94,7 @@
 				"controller": "controller::contacts",
 				"method": "delete",
 				"in":null,
-				"arg":null,
+				"arg":"uri",
 				"auth":["logged_in"],
 				"out":"json",
 				"arguments":[
@@ -103,5 +103,5 @@
 			}
 		}
 	}
-]
 
+]

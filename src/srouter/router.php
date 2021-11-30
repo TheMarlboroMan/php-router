@@ -37,7 +37,7 @@ class router {
 		try {
 
 			$this->logger->info("will build the request", self::log_module);
-			$request=$this->request_factory->build();
+			$request=$this->request_factory->build_request();
 
 			$transformed_uri=$this->uri_transformer->transform($request->get_uri());
 			$this->logger->info($request->get_uri()." becomes $transformed_uri", self::log_module);
@@ -134,15 +134,11 @@ class router {
 		}
 		catch(\Exception $e) {
 
-			$this->logger->error($e->getMessage(), self::log_module);
-			//TODO: See about that...
-			return new \srouter\http_response(500, [], "ERROR");
+			$this->handle_error($e);
 		}
 		catch(\Error $e) {
 
-			$this->logger->error("(at ".$e->getFile().":".$e->getLine().") ".$e->getMessage(), self::log_module);
-			//TODO: See about that...
-			return new \srouter\http_response(500, [], "ERROR");
+			$this->handle_error($e);
 		}
 	}
 
@@ -150,7 +146,7 @@ class router {
 		string $_classname
 	) {
 
-		$controller=$this->controller_factory->build($_classname);
+		$controller=$this->controller_factory->build_controller($_classname);
 
 		if(null===$controller) {
 
@@ -170,7 +166,7 @@ class router {
 		interfaces\request $_request
 	) : interfaces\request {
 
-		$factory=$this->in_transformer_factory->build($_key);
+		$factory=$this->in_transformer_factory->build_in_transformer($_key);
 		if(null===$factory) {
 
 			throw new \srouter\exception\bad_dependency("fatal error, cannot build request transformer");
@@ -187,7 +183,7 @@ class router {
 		foreach($_authorizers as $key) {
 
 			$this->logger->info("will authorize using $key", self::log_module);
-			$authorizer=$this->authorizer_factory->build($key);
+			$authorizer=$this->authorizer_factory->build_authorizer($key);
 
  			if(null===$authorizer) {
 
@@ -209,7 +205,7 @@ class router {
 		array $_uri_parameters
 	) {
 
-		$extractor=$this->parameter_extractor_factory->build($_argument_extractor);
+		$extractor=$this->parameter_extractor_factory->build_parameter_extractor($_argument_extractor);
 		if(null===$extractor) {
 
 			throw new \srouter\exception\bad_dependency("cannot build argument extractor '$_argument_extractor'");
@@ -234,13 +230,30 @@ class router {
 		string $_out_transformer
 	) : \srouter\http_response {
 
-		$transformer=$this->out_transformer_factory->build($_out_transformer);
+		$transformer=$this->out_transformer_factory->build_out_transformer($_out_transformer);
 		if(null===$transformer) {
 
 			throw new \srouter\exception\bad_dependency("cannot build out transformer '$_out_transformer''");
 		}
 
 		return $transformer->transform($_result);
+	}
+
+	private function handle_error(
+		$_exception
+	) {
+
+		//TODO: here is where the hot is
+
+			$this->logger->error($e->getMessage(), self::log_module);
+			//TODO: See about that...
+			//TODO: Sure, how is this shit transformed??
+			return new \srouter\http_response(500, [], "ERROR");
+			$this->logger->error("(at ".$e->getFile().":".$e->getLine().") ".$e->getMessage(), self::log_module);
+			//TODO: See about that...
+			//TODO: Sure, how is this shit transformed??
+			return new \srouter\http_response(500, [], "ERROR");
+
 	}
 
 	private \log\logger_interface               $logger;

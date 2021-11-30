@@ -10,7 +10,7 @@ class authorizer_factory implements \srouter\interfaces\authorizer_factory {
 		$this->dc=$_dc;
 	}
 
-	public function build(
+	public function build_authorizer(
 		string $_name
 	) : ?\srouter\interfaces\authorizer {
 

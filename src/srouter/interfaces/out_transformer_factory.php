@@ -8,5 +8,5 @@ namespace srouter\interfaces;
 
 interface out_transformer_factory {
 
-	public function build(string $_name) : ?out_transformer;
+	public function build_out_transformer(string $_name) : ?out_transformer;
 }

@@ -96,6 +96,8 @@ class path_mapper implements \srouter\interfaces\path_mapper {
 			$path->arguments
 		);
 
+		//TODO: check these properties exist.
+
 		return new \srouter\route(
 			$path->controller,
 			$path->method,

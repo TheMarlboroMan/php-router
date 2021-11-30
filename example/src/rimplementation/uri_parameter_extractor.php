@@ -1,7 +1,7 @@
 <?php
 namespace rimplementation;
 
-class query_only_parameter_extractor implements \srouter\interfaces\parameter_extractor {
+class uri_parameter_extractor implements \srouter\interfaces\parameter_extractor {
 
 	public function __construct() {
 
@@ -16,13 +16,14 @@ class query_only_parameter_extractor implements \srouter\interfaces\parameter_ex
 
 		$name=$_argument->get_name();
 
-		if($_argument->get_source()==="query") {
+		//if the argument comes in the URI, just be done with that.
+		if($_argument->get_source()==="uri") {
 
-			$value=$this->parameter_maker->find_query_parameter($name, $_request);
+			$value=$this->parameter_maker->find_uri_parameter($name, $_uri_params);
 			return $this->parameter_maker->make_param($value, $_argument);
 		}
 
-		throw new \Exception("invalid argument type for query only parameter extractor");
+		throw new \Exception("invalid argument type for uri parameter extractor");
 
 	}
 

@@ -10,7 +10,7 @@ class controller_factory implements \srouter\interfaces\controller_factory {
 		$this->dc=$_dc;
 	}
 
-	public function build(
+	public function build_controller(
 		string $_classname
 	) {
 

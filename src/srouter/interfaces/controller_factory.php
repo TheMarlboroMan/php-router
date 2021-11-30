@@ -14,6 +14,6 @@ interface controller_factory {
 *methods.
 */
 
-	public function build(string $_classname);
+	public function build_controller(string $_classname);
 
 };

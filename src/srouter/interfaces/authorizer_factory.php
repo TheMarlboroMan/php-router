@@ -8,5 +8,5 @@ namespace srouter\interfaces;
 
 interface authorizer_factory {
 
-	public function build(string $_name) : ?authorizer;
+	public function build_authorizer(string $_name) : ?authorizer;
 }
