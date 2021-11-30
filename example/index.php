@@ -4,13 +4,8 @@
 //everything here.
 
 //setup autoload. We have setup some dependencies in the external directory,
-//these are
-//https://github.com/TheMarlboroMan/php-request
-//https://github.com/TheMarlboroMan/php-log
-//https://github.com/TheMarlboroMan/php-pattern-matcher
-
+//there's a lone file called what-goes-here telling you what to do.
 //setup an autoloader for the router, at ../src
-
 //let us also setup an autoloader for every part of our project, residing in
 //src...
 

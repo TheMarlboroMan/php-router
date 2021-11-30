@@ -1,1 +1,6 @@
 example/log/router.log
+example/src/external/*
+!example/src/external/what-goes-here
+example/data/rolodex.dat
+example/data/auth.dat
+

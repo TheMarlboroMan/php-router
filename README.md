@@ -10,14 +10,13 @@ Because.
 
 # do you know XXXX, YYYY and ZZZZ exist?
 
-Maybe. Probably.
+Maybe. Probably. What does it matter to you?
 
 ## why would I use this and not XXXX, YYYY and ZZZZ?
 
 Your guess, not mine.
 
 I can tell you my reasons: I really don't enjoy using third party components for personal projects and this is aimed at personal stuff, so there.
-
 
 ## how does it work?
 
@@ -52,7 +51,9 @@ You may provide a factory of objects that can answer if a request is authorized.
 
 ### path mapper:
 
-You must provide a path mapper and uri transformer. The uri transformer takes a uri and manipulates it (say, you want to remove leading directories from the path part of the URI because you are lazy and work under localhost/myproject). The path mapper takes that manipulated URI and the HTTP method and makes it correspond to a call to something, a controller. Each of these calls can have their own authorizers, input transformers, output transformers and parameter extractors.
+You must provide a path mapper and uri transformer. The uri transformer takes a uri and manipulates it (say, you want to remove leading directories from the path part of the URI because you are lazy and work under localhost/myproject). The path mapper takes that manipulated URI and the HTTP method and makes it correspond to a call to something, a controller. Each of these calls can have their own authorizers, input transformers, output transformers, parameter extractors...
+
+This component can really benefit of a config file, or a precompiled approach.
 
 ### controllers:
 
@@ -82,3 +83,30 @@ Handlers will receive an Error or Exception and can test them with instanceof to
 
 The example is yes another contact manager yay. Should be easy enough to setup given that the proper permissions are given to the data directory.
 
+### setting it up: dependencies
+
+Ok, let's start by checking the example/src/external/what-goes-here file. Just follow the instructions there: clone the repositories, move the files as described and you're done.
+
+### setting it up: paths
+
+Let's go to example/index.php and locate where "\rimplementation\uri_transformer" is built. This class wants a string passed to its constructor and the string means "what do I substract from the path part of my uri so I can get clean paths". 
+
+To be honest, I am just lazy. I run this stuff at localhost so my complete path may be something like /path/to/php-router/example... When I instruct my browser to do "blah" there I end up with "http://localhost/php-router/example/blah" and I only want the blah part. That's the job of the uri_transformer:
+
+- splits the uri into parts and takes only the path "php-router/example/blah".
+- removes whatever we pass into the constructor.
+- we got "blah".
+
+That said, set it up so you can get "blah" to.
+
+### setting it up: permissions
+
+The example wants the web server to write in the data directory. Do what you must.
+
+### done
+
+That would be all. You should be all set.
+
+### why don't you do regular expressions for the path_mapper and instead rely on your own component?
+
+Can't be bothered to.

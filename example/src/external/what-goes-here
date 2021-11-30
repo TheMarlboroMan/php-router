@@ -1,0 +1,16 @@
+Clone these repos:
+
+https://github.com/TheMarlboroMan/php-request
+https://github.com/TheMarlboroMan/php-log
+https://github.com/TheMarlboroMan/php-pattern-matcher
+
+all you need is their source, nothing more, in layman's terms:
+
+- for php-request you want to remove the "lib/src" part of "lib/src/request" 
+	so it reads "request/" and then all classes inside.
+- for php-log you want to remove the "src" part of "src/log" so it reads "log/"
+	and then all class files inside.
+- for php-pattern-matcher you want to remove the "lib/src" part of "lib/src/tools/pattern_matcher"
+	so it reads "tools/pattern_matcher/" and then all class files inside.
+
+And that would be all.
