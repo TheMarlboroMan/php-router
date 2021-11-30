@@ -2,7 +2,7 @@
 namespace srouter;
 
 /**
-*http response header.
+*simple http response header.
 */
 
 class http_response_header {
@@ -16,16 +16,25 @@ class http_response_header {
 		$this->value=$_value;
 	}
 
+/**
+*returns the header name.
+*/
 	public function get_name() : string {
 
 		return $this->name;
 	}
 
+/**
+*returns the header value and optional pieces.
+*/
 	public function get_value() : string {
 
 		return $this->value;
 	}
 
+/**
+*outputs the header as expected by a browser.
+*/
 	public function __toString() : string {
 
 		return strtolower($this->name).":".strtolower($this->value);

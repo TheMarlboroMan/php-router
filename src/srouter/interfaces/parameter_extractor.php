@@ -8,6 +8,10 @@ namespace srouter\interfaces;
 
 interface parameter_extractor {
 
+/**
+*must extract the value (mixed) for the given argument from the request. Uri
+*params are provided in case they are needed.
+*/
 	public function extract(
 		\srouter\argument $_argument,
 		\srouter\interfaces\request $_request,

@@ -20,16 +20,28 @@ class controller_response {
 		$this->body=$_body;
 	}
 
+/**
+*returns the status code, which should really be the same as a standard HTTP
+*status code.
+*/
 	public function     get_status_code() : string{
 
 		return $this->status_code;
 	}
 
+/**
+*returns the headers. The whole system expects these to be of 
+*http_response_header type.
+*/
 	public function     get_headers() : array {
 
 		return $this->headers;
 	}
 
+/**
+*returns the body, which can literally be anything that your out_transformers
+*will be able to work with.
+*/
 	public function     get_body() {
 
 		return $this->body;

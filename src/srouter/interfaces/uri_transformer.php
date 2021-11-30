@@ -11,6 +11,5 @@ interface uri_transformer {
 /**
 *must map the uri to something useful for the path_mapper.
 */
-
 	public function transform(string $_uri) : string;
 }

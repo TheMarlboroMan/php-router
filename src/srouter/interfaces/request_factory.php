@@ -10,7 +10,6 @@ interface request_factory {
 /**
 *must build a request compatible object from whichever sources.
 */
-
 	public function build_request() : request;
 
 };

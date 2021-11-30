@@ -14,7 +14,6 @@ class parameter_maker {
 /**
 *returns a mixed value that will go as a parameter in a method call.
 */
-
 	public function make_param(
 		$_value,
 		argument $_argument
@@ -57,8 +56,12 @@ class parameter_maker {
 
 /**
 *attempts to extract a uri-specific parameter by name, because I love those.
+*uri parameters are a very particular thing and take the form of variable 
+*sections in a uri like /path/user/USERNAME/profile where USERNAME is what
+*we call uri_parameter. The path mapper can identify these and, if so, return
+*them into a map. This just looks into such a map and returns the value if 
+*found, null if not.
 */
-
 	public function  find_uri_parameter(
 		string $_name,
 		array $_parameters
@@ -83,7 +86,6 @@ class parameter_maker {
 /**
 *attempts to find a query string parameter and returns null if cannot find it.
 */
-
 	public function	find_query_parameter(
 		string $_name,
 		\srouter\interfaces\request $_request
@@ -128,6 +130,9 @@ class parameter_maker {
 		throw new \srouter\exception\bad_parameter_type();
 	}
 
+/**
+*trims a string value and all strings within arrays.
+*/
 	private function trim(
 		$_value
 	) {

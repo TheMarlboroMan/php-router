@@ -15,6 +15,5 @@ interface path_mapper {
 *provided in the result as uri_parameter objects. The most complicated part
 *would be mapping whatever the input is to "argument" objects.
 */
-
 	public function map(string $_method, string $_uri) : ?\srouter\route;
 }

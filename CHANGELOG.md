@@ -11,8 +11,9 @@ Changes will be documented under Added, Changed, Deprecated, Removed, Fixed or S
 
 ## Unreleased
 ### Pending
-- Document every class, function and interface.
 - Specify out_transformers for exception handlers.
+- Specify a mapping for srouter::argument name to PHP argument name, router.php circa 111.
+- Document the example?
 
 ## [v0.1.0]: 2021-11-30
 ### Added

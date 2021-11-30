@@ -2,7 +2,10 @@
 namespace srouter;
 
 /**
-*the router. You would expect this to be documented, right?
+*the router. this cass will need to be instatiated and fed a series of factories
+*at build time. When built, the only two things can it can do is recieve 
+*more error handlers or start the routing process via "route", which will 
+*culminate in an http_response being returned to the calling scope.
 */
 
 class router {
@@ -42,11 +45,15 @@ class router {
 
 	public function							add_exception_handler(
 			\srouter\interfaces\exception_handler $_e
-	) {
+	) :\srouter\router {
 
 		$this->exception_handlers[]=$_e;
+		return $this;
 	}
 
+/**
+*starts the whole routing process and returns the resulting http response.
+*/
 	public function                         route() : \srouter\http_response {
 
 		try {
@@ -108,6 +115,8 @@ class router {
 
 				$this->logger->info("will attempt to find value for argument '".$parameter->getName()."'", self::log_module);
 
+//TODO: use a argument_name_mapper and be done.
+
 				//i always use underscores for parameters...
 				$name=substr($parameter->getName(), 1);
 				if(array_key_exists($name, $arguments)) {
@@ -157,6 +166,9 @@ class router {
 		}
 	}
 
+/**
+*attempts to build the controller that matches the request.
+*/
 	private function                        build_controller(
 		string $_classname
 	) {
@@ -176,6 +188,9 @@ class router {
 		return $controller;
 	}
 
+/**
+*attempts to transform the request according to the current route.
+*/
 	private function                        transform_request(
 		string $_key,
 		interfaces\request $_request
@@ -190,6 +205,11 @@ class router {
 		return $factory->transform($_request);
 	}
 
+/**
+*attempts to authorize the current request. If authorization fails, the 
+*"unauthorized" exception will be thrown. This exception can be caught by 
+*custom handlers of the generic one.
+*/
 	private function                        authorize(
 		array $_authorizers,
 		interfaces\request $_request
@@ -213,6 +233,10 @@ class router {
 		}
 	}
 
+/**
+*attempts to extract method arguments from the request according to the route
+*definition.
+*/
 	private function extract_arguments(
 		string $_argument_extractor,
 		array $_arguments,
@@ -240,6 +264,10 @@ class router {
 		return $result;
 	}
 
+/**
+*transforms the controller_response (what is returned by a controller) into 
+*an http_response according to the route specification.
+*/
 	private function transform_out(
 		controller_response $_result,
 		string $_out_transformer
@@ -258,7 +286,6 @@ class router {
 *handles the error and ultimately returns an error response to the browser.
 *let us assume that there will always be a request. So far.
 */
-
 	private function handle_error(
 		$_exception,
 		\srouter\interfaces\request $_request,

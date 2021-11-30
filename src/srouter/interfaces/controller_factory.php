@@ -13,7 +13,6 @@ interface controller_factory {
 *for the controller. They will be checked at runtime to implement the called
 *methods.
 */
-
 	public function build_controller(string $_classname);
 
 };

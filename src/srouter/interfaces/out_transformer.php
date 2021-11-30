@@ -8,5 +8,8 @@ namespace srouter\interfaces;
 
 interface out_transformer {
 
+/**
+*must transform the controller response into an http_response and return it.
+*/
 	public function transform(\srouter\controller_response $_response) : \srouter\http_response;
 }

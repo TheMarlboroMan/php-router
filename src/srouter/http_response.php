@@ -2,7 +2,7 @@
 namespace srouter;
 
 /**
-*http_response
+*http_response as defined by status code, http_headers and body (a string).
 */
 
 class http_response {
@@ -18,6 +18,10 @@ class http_response {
 		$this->body=$_body;
 	}
 
+/**
+*outputs the response, starting with the headers and ending with the body.
+*this should be the last thing to happen in your application.
+*/
 	public function     out() : void {
 
 		header("HTTP/1.1 {$this->status_code} {$this->translate_code($this->status_code)}");
@@ -28,6 +32,10 @@ class http_response {
 		echo $this->body.PHP_EOL;
 	}
 
+/**
+*returns a string representation of the response for whatever purposes one
+*can think of.
+*/
 	public function     toString() : string {
 
 		$headers=array_reduce(

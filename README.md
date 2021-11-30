@@ -8,7 +8,7 @@ Well a barebones router of course. This component should be able to grab a reque
 
 Because.
 
-# do you know XXXX, YYYY and ZZZZ exist?
+## do you know XXXX, YYYY and ZZZZ exist?
 
 Maybe. Probably. What does it matter to you?
 
@@ -33,7 +33,7 @@ The kind of things you are supposed to provide are:
 - something to build output transformers and the output transformers themselves.
 - something to build error handlers and the error handlers themselves.
 
-These almost always come in pairs of "a factory" and "stuff the factory builds". These are supposed to be evil multi-factories that you pass a key in and they return an object that satisfies the interface. The implementor controls these keys and what kind of objects can be built with them. Most factories can return null to indicate that nothing with that key is to be built (and probably crash later).
+These almost always come in pairs of "a factory" and "stuff the factory builds". These are supposed to be evil multi-factories that you pass a key in and they return an object that satisfies the interface. The implementor controls these keys and what kind of objects can be built with them. Most factories can return null to indicate that nothing with that key is to be built (and probably throw later).
 
 A closer look follows:
 
@@ -79,6 +79,10 @@ There's a strong guarantee that every exception or error thrown inside router::r
 
 Handlers will receive an Error or Exception and can test them with instanceof to determine specificically what happened.
 
+## a word about default parameters
+
+The router will attempt to locate parameters in the request for all your method arguments, even if you define default values for them, so any missing parameters (as defined by the argument class) will throw.
+
 ## the example
 
 The example is yes another contact manager yay. Should be easy enough to setup given that the proper permissions are given to the data directory.
@@ -110,3 +114,11 @@ That would be all. You should be all set.
 ### why don't you do regular expressions for the path_mapper and instead rely on your own component?
 
 Can't be bothered to.
+
+## how do I use this into my own project?
+
+Are you going to use this? ok, well... Plase, just study the example. No need to really really study the router, but study the example itself, see what's what and what it does, realise that most factory interfaces can be implemented with something that goes return new $classname($mydependencycontainer) and that you can actually use a single class to implement them all, dirty stile.
+
+Just one thing, the example is not production-quality at all. It is quick, dirty and takes a lot of shortcuts. Please, don't be like that.
+
+

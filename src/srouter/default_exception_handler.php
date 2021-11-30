@@ -1,6 +1,13 @@
 <?php
 namespace srouter;
 
+/**
+*this is the default exception and error handler for the router. It will (in
+*order) catch all the srouter\exception exceptions and then anything else.
+*To override this behaviour, custom handlers can be created and injected into
+*the router or into a particular route.
+*/
+
 class default_exception_handler implements \srouter\interfaces\exception_handler {
 
 	private const log_module="default_exception_handler";
@@ -11,6 +18,10 @@ class default_exception_handler implements \srouter\interfaces\exception_handler
 
 		$this->logger=$_logger;
 	}
+
+/**
+*handles a exception
+*/
 
 	public function handle_exception(  
 		\Exception $_e, 
@@ -69,6 +80,10 @@ class default_exception_handler implements \srouter\interfaces\exception_handler
 		$this->logger->warning($_e->getMessage()." (".get_class($_e).")", self::log_module);
 		return new \srouter\http_response(500, [], "internal server error [e001]");
 	}
+
+/**
+*handles an error
+*/
 
 	public function handle_error(  
 		\Error $_e, 
