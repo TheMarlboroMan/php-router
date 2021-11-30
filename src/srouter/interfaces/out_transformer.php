@@ -8,5 +8,5 @@ namespace srouter\interfaces;
 
 interface out_transformer {
 
-	//TODO:
+	public function transform(\srouter\controller_response $_response) : \srouter\http_response;
 }

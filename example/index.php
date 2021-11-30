@@ -41,9 +41,17 @@ spl_autoload_register(function(string $_class) {
 	throw new \Exception("could not load class $_class");
 });
 
+//This part has nothing to do with the router, it is our dependency container
+//that can be injected into our router implementations. A real world example
+//would have config files and stuff, but this will suffice.
+$dc=new \app\dependency_container(__DIR__);
+
 //a logger. This router wants a logger and it will conform to the logger
 //interface found at https://github.com/TheMarlboroMan/php-log.
-$logger=new \log\out_logger(new \log\default_formatter());
+$logger=new \log\file_logger(
+	new \log\default_formatter(),
+	__DIR__."/log/router.log"
+);
 
 //now, let's build stuff in order... first we want to be able to build a request
 //compatible object for the router...
@@ -56,18 +64,17 @@ $path_mapper=new \rimplementation\path_mapper(__DIR__."/conf/paths.json");
 //after that, maybe we want to transform the request body, which may include decyphering.
 $in_transformer_factory=new \rimplementation\factory\in_transformer_factory();
 
-//then we may want to perform authorization...
+//then we may want to performP authorization...
 $authorizer_factory=new \rimplementation\factory\authorizer_factory();
 
 //we want to extract arguments from the request.
 $parameter_extractor_factory=new \rimplementation\factory\parameter_extractor_factory();
 
-//next we want to build the controller...
-$controller_factory=new \rimplementation\factory\controller_factory();
-//TODO:
+//next we'll want to build the controllers, so we give the factory what it will need...
+$controller_factory=new \rimplementation\factory\controller_factory($dc);
 
 //with the controller output we may want to transform it ...
-//TODO:
+$out_transformer_factory=new \rimplementation\factory\out_transformer_factory();
 
 //and that should be it: let's build the router with all this stuff...
 $router=new \srouter\router(
@@ -78,8 +85,9 @@ $router=new \srouter\router(
 	$in_transformer_factory,
 	$authorizer_factory,
 	$parameter_extractor_factory,
-	$controller_factory
+	$controller_factory,
+	$out_transformer_factory
 );
 
 //And that's it, we can leave now.
-$router->route();
+$router->route()->out();

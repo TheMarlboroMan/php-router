@@ -1,31 +1,28 @@
 <?php
 namespace app\controller;
 
-class contacts {
+class contacts extends controller {
 
 	public function get(
 		?string $_filter_number,
 		?string $_filter_name
-	) {
+	) :\srouter\controller_response {
 
-var_dump(func_get_args());
-die();
-
-		return new \srouter\response(200, [], "lool");
+		//TODO:
 	}
 
 	public function post(
 		string $_name,
 		string $_phone,
 		string $_company
-	) {
+	) :\srouter\controller_response {
 
 		//TODO:
 	}
 
 	public function info(
 		int $_id
-	) {
+	) :\srouter\controller_response {
 
 		//TODO:
 	}
@@ -35,14 +32,14 @@ die();
 		?string $_name,
 		?string $_phone,
 		?string $_company
-	) {
+	) :\srouter\controller_response {
 
 		//TODO:
 	}
 
 	public function delete(
 		int $_id,
-	) {
+	) :\srouter\controller_response {
 
 		//TODO:
 	}

@@ -52,7 +52,7 @@ class json_parameter_extractor implements \srouter\interfaces\parameter_extracto
 			}
 
 			$value=property_exists($this->json_doc, $name)
-				? $this->json_doc->name
+				? $this->json_doc->$name
 				: null;
 
 			return $this->parameter_maker->make_param($value, $_argument);

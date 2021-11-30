@@ -17,7 +17,8 @@ class router {
 		interfaces\in_transformer_factory   $_in_transformer_factory,
 		interfaces\authorizer_factory       $_authorizer_factory,
 		interfaces\parameter_extractor_factory $_parameter_extractor_factory,
-		interfaces\controller_factory       $_controller_factory
+		interfaces\controller_factory       $_controller_factory,
+		interfaces\out_transformer_factory  $_out_transformer_factory
 	) {
 
 		$this->logger=$_logger;
@@ -28,9 +29,10 @@ class router {
 		$this->authorizer_factory=$_authorizer_factory;
 		$this->parameter_extractor_factory=$_parameter_extractor_factory;
 		$this->controller_factory=$_controller_factory;
+		$this->out_transformer_factory=$_out_transformer_factory;
 	}
 
-	public function                         route() {
+	public function                         route() : \srouter\http_response {
 
 		try {
 
@@ -76,16 +78,16 @@ class router {
 				);
 			}
 
-
 			//build controller...
 			$controller=$this->build_controller($route->get_classname());
 			if(!method_exists($controller, $route->get_methodname())) {
 
 				$this->logger->warning("could not find method '".$route->get_methodname()."' in '".$route->get_classname()."'", self::log_module);
-				throw new \Exception("method does not exist for controller");
+				throw new \srouter\exception\bad_dependency("method does not exist for controller");
 			}
 
 			//finally, sort arguments as they appear on the controller....
+			$sorted_arguments=[];
 			$reflector=new \ReflectionMethod($controller, $route->get_methodname());
 			foreach($reflector->getParameters() as $parameter) {
 
@@ -95,23 +97,22 @@ class router {
 				$name=substr($parameter->getName(), 1);
 				if(array_key_exists($name, $arguments)) {
 
-					$sent_arguments[]=$arguments[$name];
+					$sorted_arguments[]=$arguments[$name];
 					continue;
 				}
 
 				$name=$parameter->getName();
 				if(array_key_exists($name, $arguments)) {
 
-					$sent_arguments[]=$arguments[$name];
+					$sorted_arguments[]=$arguments[$name];
 					continue;
 				}
 
 				$this->logger->info("cannot find parameter for '".$parameter->getName()."'", self::log_module);
-				//TODO: Maybe use other type???
-				throw new \srouter\exception\exception("cannot find parameter for argument '".$parameter->getName()."'");
+				throw new \srouter\exception\argument_mapping("cannot find parameter for argument '".$parameter->getName()."'");
 			}
 
-			if(count($reflector->getParameters()) !== count($sent_arguments)) {
+			if(count($reflector->getParameters()) !== count($sorted_arguments)) {
 
 				throw new \srouter\exception\bad_dependency("no parameters could be extracted when the prototype demands them");
 			}
@@ -119,26 +120,29 @@ class router {
 			//execute...
 			$methodname=$route->get_methodname();
 			$this->logger->info("will perform execution now...", self::log_module);
-			$result=$controller->$methodname(...$sent_arguments);
-			if(! ($result instanceof response)) {
+			$result=$controller->$methodname(...$sorted_arguments);
 
-				$this->logger->warning("returned value is not a response!", self::log_module);
-				throw new \Exception("result of '".$route->get_methodname()."' in '".$route->get_classname()."' is not a response");
+			if(! ($result instanceof controller_response)) {
+
+				$this->logger->warning("returned value is not a controller_response!", self::log_module);
+				throw new \srouter\exception\bad_response("result of '".$route->get_methodname()."' in '".$route->get_classname()."' is not a controller_response");
 			}
 
-			//transform out...
-			//TODO:
-
-			var_dump($result);
-			die();
-
-
-
+			//transform output.
+			$this->logger->info("will transform and return output...", self::log_module);
+			return $this->transform_out($result, $route->get_out_transformer());
 		}
 		catch(\Exception $e) {
 
-			//TODO: what about interrupts?
-			die("ERROR:".$e->getMessage());
+			$this->logger->error($e->getMessage(), self::log_module);
+			//TODO: See about that...
+			return new \srouter\http_response(500, [], "ERROR");
+		}
+		catch(\Error $e) {
+
+			$this->logger->error("(at ".$e->getFile().":".$e->getLine().") ".$e->getMessage(), self::log_module);
+			//TODO: See about that...
+			return new \srouter\http_response(500, [], "ERROR");
 		}
 	}
 
@@ -187,7 +191,7 @@ class router {
 
  			if(null===$authorizer) {
 
-				throw new \srouter\exception\bad_dependency("fatal error, cannot build authorizer");
+				throw new \srouter\exception\bad_dependency("fatal error, cannot build authorizer '$key'");
 			}
 
 			if(!$authorizer->authorize($_request)) {
@@ -208,7 +212,7 @@ class router {
 		$extractor=$this->parameter_extractor_factory->build($_argument_extractor);
 		if(null===$extractor) {
 
-			throw new \srouter\exception\bad_dependency("cannot build argument extractor");
+			throw new \srouter\exception\bad_dependency("cannot build argument extractor '$_argument_extractor'");
 		}
 
 		$result=[];
@@ -225,6 +229,20 @@ class router {
 		return $result;
 	}
 
+	private function transform_out(
+		controller_response $_result,
+		string $_out_transformer
+	) : \srouter\http_response {
+
+		$transformer=$this->out_transformer_factory->build($_out_transformer);
+		if(null===$transformer) {
+
+			throw new \srouter\exception\bad_dependency("cannot build out transformer '$_out_transformer''");
+		}
+
+		return $transformer->transform($_result);
+	}
+
 	private \log\logger_interface               $logger;
 	private interfaces\path_mapper              $path_mapper;
 	private interfaces\uri_transformer          $uri_transformer;
@@ -233,4 +251,5 @@ class router {
 	private interfaces\authorizer_factory       $authorizer_factory;
 	private interfaces\parameter_extractor_factory $parameter_extractor_factory;
 	private interfaces\controller_factory       $controller_factory;
+	private interfaces\out_transformer_factory  $out_transformer_factory;
 }

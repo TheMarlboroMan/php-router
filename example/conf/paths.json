@@ -7,9 +7,26 @@
 				"method": "get",
 				"in":null,
 				"arg":null,
-				"auth":[],
+				"auth":["logged_in"],
 				"out":"json",
 				"arguments":[]
+			}
+		}
+	},
+	{
+		"path":"login",
+		"methods":{
+			"POST": {
+				"controller":"controller::login",
+				"method":"post",
+				"in": null,
+				"arg": "json",
+				"auth": [],
+				"out": "json",
+				"arguments":[
+					{"name":"username", "source":"json", "type":"string"},
+					{"name":"pass", "source":"json", "type":"string"}
+				]
 			}
 		}
 	},
@@ -21,7 +38,7 @@
 				"method": "get",
 				"in":null,
 				"arg":"query",
-				"auth":[],
+				"auth":["logged_in"],
 				"out":"json",
 				"arguments": [
 					{"name":"filter_name", "source":"query", "type":"string", "nullable":true},
@@ -33,7 +50,7 @@
 				"method": "post",
 				"in":null,
 				"arg":"json",
-				"auth":[],
+				"auth":["logged_in"],
 				"out":"json",
 				"arguments":[
 					{"name":"name", "source":"json", "type":"string"},
@@ -51,7 +68,7 @@
 				"method": "info",
 				"in":null,
 				"arg":"json",
-				"auth":[],
+				"auth":["logged_in"],
 				"out":"json",
 				"arguments":[
 					{
@@ -64,7 +81,7 @@
 				"method": "patch",
 				"in":null,
 				"arg":"json",
-				"auth":[],
+				"auth":["logged_in"],
 				"out":"json",
 				"arguments":[
 					{"name":"id", "source":"uri", "type":"int"},
@@ -78,10 +95,10 @@
 				"method": "delete",
 				"in":null,
 				"arg":null,
-				"auth":[],
+				"auth":["logged_in"],
 				"out":"json",
 				"arguments":[
-					{"name":"id", "source":"uri", "type":"int"},
+					{"name":"id", "source":"uri", "type":"int"}
 				]
 			}
 		}
