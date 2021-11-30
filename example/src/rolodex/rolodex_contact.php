@@ -1,7 +1,7 @@
 <?php
 namespace rolodex;
 
-class rolodex_contact {
+class rolodex_contact implements \jsonSerializable {
 
 	public function get_id() : int {
 	
@@ -45,6 +45,16 @@ class rolodex_contact {
 
 		$this->company=$_company;
 		return $this;
+	}
+
+	public function jsonSerialize() : array {
+
+		return [
+			"id" => $this->id,
+			"name" => $this->name,
+			"number" => $this->number,
+			"company" => $this->company
+		];
 	}
 
 	private int $id=0;

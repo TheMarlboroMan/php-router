@@ -23,7 +23,7 @@ interface exception_handler {
 */
 
 	public function handle_error(  
-		\Exception $_e, 
+		\Error $_e, 
 		\srouter\interfaces\request $_request,
 		?\srouter\route $_route
 	) : ?\srouter\http_response;

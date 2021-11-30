@@ -54,6 +54,12 @@ class default_exception_handler implements \srouter\interfaces\exception_handler
 			return new \srouter\http_response(404, [], "not found [u003]");
 		}
 
+		if($_e instanceof \srouter\exception\bad_request) {
+
+			$this->logger->warning($_e->getMessage()." (".get_class($_e).")", self::log_module);
+			return new \srouter\http_response(400, [], "bad request [u004]");
+		}
+
 		if($_e instanceof \srouter\exception\unauthorized) {
 
 			$this->logger->warning($_e->getMessage()." (".get_class($_e).")", self::log_module);
@@ -65,7 +71,7 @@ class default_exception_handler implements \srouter\interfaces\exception_handler
 	}
 
 	public function handle_error(  
-		\Exception $_e, 
+		\Error $_e, 
 		\srouter\interfaces\request $_request,
 		?\srouter\route $_route
 	) : ?\srouter\http_response {

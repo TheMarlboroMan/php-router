@@ -85,9 +85,9 @@
 				"out":"json",
 				"arguments":[
 					{"name":"id", "source":"uri", "type":"int"},
-					{"name":"name", "source":"json", "type":"string", "optional":true, "default":null},
-					{"name":"phone", "source":"json", "type":"string", "optional":true, "default":null},
-					{"name":"company", "source":"json", "type":"string", "optional":true, "default":null}
+					{"name":"name", "source":"json", "type":"string", "nullable":true, "optional":true, "default":null},
+					{"name":"phone", "source":"json", "type":"string", "nullable":true, "optional":true, "default":null},
+					{"name":"company", "source":"json", "type":"string", "nullable":true, "optional":true, "default":null}
 				]
 			},
 			"DELETE": {

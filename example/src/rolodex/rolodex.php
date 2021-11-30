@@ -32,7 +32,7 @@ class rolodex {
 
 	public function create(
 		\rolodex\rolodex_contact $_contact
-	) {
+	) : \rolodex\rolodex_contact {
 
 		if(0!==$_contact->get_id()) {
 
@@ -40,7 +40,9 @@ class rolodex {
 		}
 
 		$_contact->set_id($this->next_id++);
+		$this->list[]=clone $_contact;
 		$this->write($this->filename);
+		return $_contact;
 	}
 
 /**
@@ -65,7 +67,7 @@ class rolodex {
 			return null;
 		}
 
-		return clone array_shift($result);
+		return array_shift($result);
 	}
 
 /**
@@ -74,7 +76,7 @@ class rolodex {
 
 	public function patch(
 		\rolodex\rolodex_contact $_contact
-	) {
+	) : void {
 
 		$contact=$this->find_by_id($_contact->get_id());
 		if(null===$contact) {
@@ -82,8 +84,10 @@ class rolodex {
 			throw new \rolodex\exception("cannot find contact when patching");
 		}
 
-		$contact=$_contact;
-		$this->write($this->filename);
+		$this->delete($contact); //yes, this will write to disk.
+		$this->list[]=$_contact; //yeep, not sorted, not production quality.
+
+		$this->write($this->filename); //yes, this will write to disk again.
 	}
 
 /**
@@ -92,7 +96,7 @@ class rolodex {
 
 	public function delete(
 		\rolodex\rolodex_contact $_contact
-	) {
+	) : void {
 
 		$contact=$this->find_by_id($_contact->get_id());
 		if(null===$contact) {
@@ -108,12 +112,12 @@ class rolodex {
 			}
 		);
 
-		$this->write();
+		$this->write($this->filename);
 	}
 
 	private function setup(
 		string $_filename
-	) {
+	) : void {
 
 		try {
 			if(!file_exists($_filename)) {
@@ -129,7 +133,7 @@ class rolodex {
 
 	private function read(
 		string $_filename
-	) {
+	) : void {
 
 		//this flag is my new best friend, apparently.
 		$contents=file($_filename, FILE_IGNORE_NEW_LINES);
@@ -142,18 +146,20 @@ class rolodex {
 		//rolodex contacts.
 
 		$number_line=array_shift($contents);
-		if(!is_int($number_line)) {
+		if(!ctype_digit($number_line)) {
 
 			throw new \rolodex\exception("bad rolodex file, first line is expected to be an integer");
 		}
+		$this->next_id=(int)$number_line;
 
 		while(count($contents)) {
 
 			$line=array_shift($contents);
 
-			if(3 !== substr_count("\t", $line)) {
+			$tabcount=substr_count($line, "\t");
+			if(3 !== $tabcount) {
 
-				throw new \rolodex\exception("bad rolodex file, contact lines are supposed to have three tabs");
+				throw new \rolodex\exception("bad rolodex file, contact lines are supposed to have 3 tabs, got $tabcount");
 			}
 
 			list($id, $name, $number, $company)=explode("\t", $line);
@@ -169,13 +175,13 @@ class rolodex {
 
 	private function write(
 		string $_filename
-	) {
+	) : void {
 
-		$contents=(string)$this->next_id;
+		$contents=(string)$this->next_id.PHP_EOL;
 		foreach($this->list as $contact) {
 
 			//again, let us not think of what happens if there's a tab in the contact data.
-			$contents.=$contact->get_id()."\t".$contact->get_name()."\t".$contact->get_number()."\n".$contact->get_company().PHP_EOL;
+			$contents.=$contact->get_id()."\t".$contact->get_name()."\t".$contact->get_number()."\t".$contact->get_company().PHP_EOL;
 		}
 
 		if(false===file_put_contents($_filename, $contents)) {
@@ -185,7 +191,6 @@ class rolodex {
 	}
 
 	private string  $filename;
-	private int     $next_id=1
+	private int     $next_id=1;
 	private array   $list=[];
-	
 };

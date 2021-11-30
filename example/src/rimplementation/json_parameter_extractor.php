@@ -41,13 +41,13 @@ class json_parameter_extractor implements \srouter\interfaces\parameter_extracto
 
 				if($_request->is_multipart()) {
 
-					throw new \Exception("json parameter extractor refuses multipart requests");
+					throw new \srouter\exception\bad_request("json parameter extractor refuses multipart requests");
 				}
 
 				$this->json_doc=json_decode($_request->get_body());
 				if(JSON_ERROR_NONE !== json_last_error()) {
 
-					throw new \Exception("could not decode json request body: ".json_last_error_msg());
+					throw new \srouter\exception\bad_request("could not decode json request body: ".json_last_error_msg());
 				}
 			}
 
@@ -59,7 +59,6 @@ class json_parameter_extractor implements \srouter\interfaces\parameter_extracto
 		}
 
 		throw new \Exception("invalid argument type for json parameter extractor");
-
 	}
 
 	private \srouter\parameter_maker $parameter_maker;

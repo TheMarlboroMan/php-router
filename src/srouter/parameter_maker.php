@@ -64,10 +64,20 @@ class parameter_maker {
 		array $_parameters
 	) {
 
-		var_dump($_parameters);
-		die();
-		//TODO TODO TODO TODO TODO.
-		die("FIND URI PARAMETER");
+		$found=array_filter(
+			$_parameters,
+			function(\srouter\uri_parameter $_param) use ($_name) {
+
+				return $_param->get_name() === $_name;
+			}
+		);
+
+		if(!count($found)) {
+
+			return null;
+		}
+
+		return array_shift($found)->get_value();
 	}
 
 /**

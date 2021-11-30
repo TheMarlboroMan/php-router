@@ -283,6 +283,8 @@ class router {
 			//one will always be there.
 			$handler=array_pop($this->exception_handlers);
 
+			$this->logger->info("attempting to handle '".get_class($_exception)."' with ".get_class($handler), self::log_module);
+
 			if($_exception instanceof \Error) {
 
 				$response=$handler->handle_error($_exception, $_request, $_route);
