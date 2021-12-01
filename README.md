@@ -98,7 +98,7 @@ Ok, let's start by checking the example/src/external/what-goes-here file. Just f
 
 ### setting it up: paths
 
-Let's go to example/index.php and locate where "\rimplementation\uri_transformer" is built. This class wants a string passed to its constructor and the string means "what do I substract from the path part of my uri so I can get clean paths".
+Let's go to example/api/index.php and locate where "\rimplementation\uri_transformer" is built. This class wants a string passed to its constructor and the string means "what do I substract from the path part of my uri so I can get clean paths".
 
 To be honest, I am just lazy. I run this stuff at localhost so my complete path may be something like /path/to/php-router/example... When I instruct my browser to do "blah" there I end up with "http://localhost/php-router/example/blah" and I only want the blah part. That's the job of the uri_transformer:
 
@@ -110,7 +110,7 @@ That said, set it up so you can get "blah" to.
 
 ### setting it up: permissions
 
-The example wants the web server to write in the data directory. Do what you must.
+The example wants the web server to write in the api/data directory. Do what you must.
 
 ### done
 

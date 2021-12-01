@@ -18,7 +18,7 @@ spl_autoload_register(function(string $_class) {
 		return;
 	}
 
-	$filename=__DIR__."/../src/".str_replace("\\", "/", $_class).".php";
+	$filename=__DIR__."/../../src/".str_replace("\\", "/", $_class).".php";
 	if(file_exists($filename)) {
 
 		require_once($filename);
@@ -33,7 +33,7 @@ spl_autoload_register(function(string $_class) {
 	}
 
 
-	throw new \Exception("could not load class $_class");
+	throw new \Exception("could not load class $_class from ".__DIR__);
 });
 
 try {
@@ -55,7 +55,7 @@ try {
 	$request_factory=new \rimplementation\factory\request_factory();
 
 	//next we need to be able to infer a path from an uri and a method
-	$uri_transformer=new \rimplementation\uri_transformer("/php-router/example/");
+	$uri_transformer=new \rimplementation\providers\uri_transformer("/php-router/example/api/");
 	$path_mapper=new \rimplementation\providers\path_mapper(__DIR__."/conf/paths.json");
 
 	//after that, maybe we want to transform the request body, which may include decyphering.

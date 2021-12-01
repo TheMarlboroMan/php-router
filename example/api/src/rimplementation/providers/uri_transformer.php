@@ -1,5 +1,5 @@
 <?php
-namespace rimplementation;
+namespace rimplementation\providers;
 
 /**
 *I run this stuff at localhost so my complete path may be something

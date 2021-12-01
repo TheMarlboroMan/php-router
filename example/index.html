@@ -15,9 +15,9 @@
 		<i class="fa fa-4x fa-spin fa-spinner"></i>
 	</div>
 
-	<div id="login">
+	<div id="login" class="hidden">
 
-		<form id="login_form">
+		<form id="login_form" action="">
 
 			<label>
 				username
@@ -31,18 +31,71 @@
 
 			<button
 				type="submit"
+				name="btn_submit"
 			>
-				Login
+				login
 			</button>
-
-			<input type="submit" class="hidden" />
 		</form>
-
 	</div>
 
-	<div id="main">
+	<div id="main" class="hidden">
 
-		This would be the main app part.
+		<h2>
+			There are <span id="contact_count">...</span> contacts in the rolodex.
+		</h2>
+
+		<button
+			type="button"
+			id="btn_new"
+		>
+			new contact
+		</button>
+
+		<ul>
+
+		</ul>
+
+		<template id="contact_row"><li>
+			<b></b> [<i></i>] (<span></span>)
+			<button
+				type="button"
+				action="edit"
+			>
+				edit
+			</button>
+			<button
+				type="button"
+				action="delete"
+			>
+				delete
+			</button>
+		</li></template>
+
+		<form id="contact_form" action="" class="hidden">
+
+			<label>
+				name
+				<input type="text" name="name" placeholder="contact name here">
+			</label>
+
+			<label>
+				number
+				<input type="text" name="number" placeholder="contact number here">
+			</label>
+
+			<label>
+				company
+				<input type="text" name="company" placeholder="company name">
+			</label>
+
+			<button
+				type="submit"
+				name="btn_submit"
+			>
+				send
+			</button>
+		</form>
+
 	</div>
 
 </body>

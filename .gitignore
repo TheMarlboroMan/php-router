@@ -1,6 +1,8 @@
-example/log/router.log
-example/src/external/*
-!example/src/external/what-goes-here
-example/data/rolodex.dat
-example/data/auth.dat
+example/api/log/*.log
+example/api/src/external
+example/api/src/external
+example/api/src/external
+!example/api/src/external/what-goes-here
+example/api/data/rolodex.dat
+example/api/data/auth.dat
 
