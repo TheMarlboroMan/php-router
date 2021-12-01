@@ -8,12 +8,12 @@ namespace srouter\interfaces;
 interface exception_handler {
 
 /**
-*handle the exception hierarchy. Must return null if the exception is not handled or a 
+*handle the exception hierarchy. Must return null if the exception is not handled or a
 *response if it was.
 */
-	public function handle_exception(  
-		\Exception $_e, 
-		\srouter\interfaces\request $_request,
+	public function handle_exception(
+		\Exception $_e,
+		?\srouter\interfaces\request $_request,
 		?\srouter\route $_route
 	) : ?\srouter\http_response;
 
@@ -22,9 +22,9 @@ interface exception_handler {
 *if it was.
 */
 
-	public function handle_error(  
-		\Error $_e, 
-		\srouter\interfaces\request $_request,
+	public function handle_error(
+		\Error $_e,
+		?\srouter\interfaces\request $_request,
 		?\srouter\route $_route
 	) : ?\srouter\http_response;
 }

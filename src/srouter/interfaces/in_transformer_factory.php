@@ -11,5 +11,5 @@ interface in_transformer_factory {
 /**
 *must build an input transformer factory.
 */
-	public function build_in_transformer(string $_name) : ?in_transformer;
+	public function build_in_transformer(string $_name) : ?\srouter\interfaces\in_transformer;
 }

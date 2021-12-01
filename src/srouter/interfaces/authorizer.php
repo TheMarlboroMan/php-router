@@ -11,5 +11,5 @@ interface authorizer {
 /**
 *must return true if the request is authorized to proceed.
 */
-	public function authorize(request $_request) : bool;
+	public function authorize(\srouter\interfaces\request $_request) : bool;
 }

@@ -23,9 +23,9 @@ class default_exception_handler implements \srouter\interfaces\exception_handler
 *handles a exception
 */
 
-	public function handle_exception(  
-		\Exception $_e, 
-		\srouter\interfaces\request $_request,
+	public function handle_exception(
+		\Exception $_e,
+		?\srouter\interfaces\request $_request,
 		?\srouter\route $_route
 	) : ?\srouter\http_response {
 
@@ -47,13 +47,13 @@ class default_exception_handler implements \srouter\interfaces\exception_handler
 			return new \srouter\http_response(500, [], "internal server error [i003]");
 		}
 
-		if($_e instanceof \srouter\exception\bad_parameter_type) {
+		if($_e instanceof \srouter\exception\bad_argument_type) {
 
 			$this->logger->warning($_e->getMessage()." (".get_class($_e).")", self::log_module);
 			return new \srouter\http_response(400, [], "bad request [u001]");
 		}
 
-		if($_e instanceof \srouter\exception\missing_compulsory_parameter) {
+		if($_e instanceof \srouter\exception\missing_compulsory_argument) {
 
 			$this->logger->warning($_e->getMessage()." (".get_class($_e).")", self::log_module);
 			return new \srouter\http_response(400, [], "bad request [u002]");
@@ -85,9 +85,9 @@ class default_exception_handler implements \srouter\interfaces\exception_handler
 *handles an error
 */
 
-	public function handle_error(  
-		\Error $_e, 
-		\srouter\interfaces\request $_request,
+	public function handle_error(
+		\Error $_e,
+		?\srouter\interfaces\request $_request,
 		?\srouter\route $_route
 	) : ?\srouter\http_response {
 

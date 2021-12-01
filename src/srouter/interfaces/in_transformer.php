@@ -9,5 +9,5 @@ interface in_transformer {
 /**
 *must return the transformed request from the input.
 */
-	public function transform(request $_request) : request;
+	public function transform(\srouter\interfaces\request $_request) : \srouter\interfaces\request;
 }

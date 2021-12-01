@@ -11,5 +11,5 @@ interface authorizer_factory {
 /**
 *must build and return an authorizer.
 */
-	public function build_authorizer(string $_name) : ?authorizer;
+	public function build_authorizer(string $_name) : ?\srouter\interfaces\authorizer;
 }

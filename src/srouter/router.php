@@ -3,8 +3,8 @@ namespace srouter;
 
 /**
 *the router. this cass will need to be instatiated and fed a series of factories
-*at build time. When built, the only two things can it can do is recieve 
-*more error handlers or start the routing process via "route", which will 
+*at build time. When built, the only two things can it can do is recieve
+*more error handlers or start the routing process via "route", which will
 *culminate in an http_response being returned to the calling scope.
 */
 
@@ -19,7 +19,8 @@ class router {
 		interfaces\path_mapper              $_path_mapper,
 		interfaces\in_transformer_factory   $_in_transformer_factory,
 		interfaces\authorizer_factory       $_authorizer_factory,
-		interfaces\parameter_extractor_factory $_parameter_extractor_factory,
+		interfaces\argument_extractor_factory $_argument_extractor_factory,
+		interfaces\parameter_mapper_factory  $_parameter_mapper_factory,
 		interfaces\controller_factory       $_controller_factory,
 		interfaces\out_transformer_factory  $_out_transformer_factory,
 		interfaces\exception_handler_factory $_exception_handler_factory
@@ -31,7 +32,8 @@ class router {
 		$this->request_factory=$_request_factory;
 		$this->in_transformer_factory=$_in_transformer_factory;
 		$this->authorizer_factory=$_authorizer_factory;
-		$this->parameter_extractor_factory=$_parameter_extractor_factory;
+		$this->argument_extractor_factory=$_argument_extractor_factory;
+		$this->parameter_mapper_factory=$_parameter_mapper_factory;
 		$this->controller_factory=$_controller_factory;
 		$this->out_transformer_factory=$_out_transformer_factory;
 		$this->exception_handler_factory=$_exception_handler_factory;
@@ -76,11 +78,8 @@ class router {
 				throw new \srouter\exception\not_found();
 			}
 
-			if(null!==$route->get_in_transformer()) {
-
-				$this->logger->info("will perform input transformation with '".$route->get_in_transformer()."'", self::log_module);
-				$request=$this->transform_request($route->get_in_transformer(), $request);
-			}
+			$this->logger->info("will attempt to perform input transformation", self::log_module);
+			$request=$this->transform_request($route->get_in_transformer(), $request);
 
 			if(count($route->get_authorizers())) {
 
@@ -94,9 +93,9 @@ class router {
 				$this->logger->notice("will extract arguments with '".$route->get_argument_extractor()."'", self::log_module);
 				$arguments=$this->extract_arguments(
 					$route->get_argument_extractor(),
-					$route->get_arguments(),
+					$route->get_parameters(),
 					$request,
-					$route->get_uri_parameters()
+					$route->get_uri_arguments()
 				);
 			}
 
@@ -108,38 +107,8 @@ class router {
 				throw new \srouter\exception\bad_dependency("method does not exist for controller");
 			}
 
-			//finally, sort arguments as they appear on the controller....
-			$sorted_arguments=[];
-			$reflector=new \ReflectionMethod($controller, $route->get_methodname());
-			foreach($reflector->getParameters() as $parameter) {
-
-				$this->logger->info("will attempt to find value for argument '".$parameter->getName()."'", self::log_module);
-
-//TODO: use a argument_name_mapper and be done.
-
-				//i always use underscores for parameters...
-				$name=substr($parameter->getName(), 1);
-				if(array_key_exists($name, $arguments)) {
-
-					$sorted_arguments[]=$arguments[$name];
-					continue;
-				}
-
-				$name=$parameter->getName();
-				if(array_key_exists($name, $arguments)) {
-
-					$sorted_arguments[]=$arguments[$name];
-					continue;
-				}
-
-				$this->logger->info("cannot find parameter for '".$parameter->getName()."'", self::log_module);
-				throw new \srouter\exception\argument_mapping("cannot find parameter for argument '".$parameter->getName()."'");
-			}
-
-			if(count($reflector->getParameters()) !== count($sorted_arguments)) {
-
-				throw new \srouter\exception\bad_dependency("no parameters could be extracted when the prototype demands them");
-			}
+			//finally, sort parameters as they appear on the controller....
+			$sorted_arguments=$this->sort_and_map_parameters($controller, $route, $arguments);
 
 			//execute...
 			$methodname=$route->get_methodname();
@@ -164,6 +133,60 @@ class router {
 
 			return $this->handle_error($e, $request, $route);
 		}
+	}
+
+/**
+*attempts to sort and map the parameters declared in the route to the ones
+*present in the PHP controller.
+*/
+	private function sort_and_map_parameters(
+		$controller,
+		\srouter\route $_route,
+		array $_arguments
+	) {
+
+		$mapper_name=$_route->get_parameter_mapper();
+		if(null!==$mapper_name) {
+
+			$mapper=$this->parameter_mapper_factory->build_parameter_mapper($mapper_name);
+			if(null===$mapper) {
+
+				throw new \srouter\exception\bad_dependency("cannot build parameter mapper '$mapper_name'");
+			}
+
+			//remap the argument names to the expected ones...
+			$mapped_arguments=[];
+			foreach($_arguments as $argname => $argvalue) {
+
+				$mapped_arguments[$mapper->map($argname)]=$argvalue;
+			}
+		}
+		else {
+
+			//No parameter mapping specified, just map them as-is.
+			$mapped_arguments=$_arguments;
+		}
+
+		$reflector=new \ReflectionMethod($controller, $_route->get_methodname());
+		$result=[];
+		foreach($reflector->getParameters() as $parameter) {
+
+			if(array_key_exists($parameter->getName(), $mapped_arguments)) {
+
+				$result[]=$mapped_arguments[$parameter->getName()];
+				continue;
+			}
+
+			$this->logger->info("cannot find argument for '".$parameter->getName()."'", self::log_module);
+			throw new \srouter\exception\argument_mapping("cannot find argument for parameter '".$parameter->getName()."'");
+		}
+
+		if(count($reflector->getParameters()) !== count($result)) {
+
+			throw new \srouter\exception\bad_dependency("no arguments could be extracted when the prototype demands them");
+		}
+
+		return $result;
 	}
 
 /**
@@ -192,22 +215,28 @@ class router {
 *attempts to transform the request according to the current route.
 */
 	private function                        transform_request(
-		string $_key,
+		?string $_key,
 		interfaces\request $_request
 	) : interfaces\request {
+
+		if(null===$_key) {
+
+			$this->logger->info("no input transformation specified, skipping...", self::log_module);
+			return $_request;
+		}
 
 		$factory=$this->in_transformer_factory->build_in_transformer($_key);
 		if(null===$factory) {
 
-			throw new \srouter\exception\bad_dependency("fatal error, cannot build request transformer");
+			throw new \srouter\exception\bad_dependency("fatal error, cannot build request transformer with '$_key'");
 		}
 
 		return $factory->transform($_request);
 	}
 
 /**
-*attempts to authorize the current request. If authorization fails, the 
-*"unauthorized" exception will be thrown. This exception can be caught by 
+*attempts to authorize the current request. If authorization fails, the
+*"unauthorized" exception will be thrown. This exception can be caught by
 *custom handlers of the generic one.
 */
 	private function                        authorize(
@@ -238,16 +267,16 @@ class router {
 *definition.
 */
 	private function extract_arguments(
-		string $_argument_extractor,
+		string $_argument_extractor_name,
 		array $_arguments,
 		interfaces\request $_request,
-		array $_uri_parameters
+		array $_uri_arguments
 	) {
 
-		$extractor=$this->parameter_extractor_factory->build_parameter_extractor($_argument_extractor);
+		$extractor=$this->argument_extractor_factory->build_argument_extractor($_argument_extractor_name);
 		if(null===$extractor) {
 
-			throw new \srouter\exception\bad_dependency("cannot build argument extractor '$_argument_extractor'");
+			throw new \srouter\exception\bad_dependency("cannot build argument extractor '$_argument_extractor_name'");
 		}
 
 		$result=[];
@@ -257,7 +286,7 @@ class router {
 			$result[$argument->get_name()]=$extractor->extract(
 				$argument,
 				$_request,
-				$_uri_parameters
+				$_uri_arguments
 			);
 		}
 
@@ -265,7 +294,7 @@ class router {
 	}
 
 /**
-*transforms the controller_response (what is returned by a controller) into 
+*transforms the controller_response (what is returned by a controller) into
 *an http_response according to the route specification.
 */
 	private function transform_out(
@@ -291,21 +320,25 @@ class router {
 		\srouter\interfaces\request $_request,
 		?\srouter\route $_route
 	) {
-		
+
 		if(null!==$_route) {
-				
+
 			//add route exception handlers...
 			foreach($_route->get_exception_handlers() as $handler_name) {
 
-				$this->add_exception_handler(
-					//this might throw. One would be crazy to do so.
-					$this->exception_handler_factory->build_exception_handler($handler_name)
-				);
+				$handler=$this->exception_handler_factory->build_exception_handler($handler_name);
+				if(null===$handler) {
+
+					$this->logger->notice("did not build handler with name '$handler_name'", self::log_module);
+					continue;
+				}
+
+				$this->add_exception_handler($handler);
 			}
 		}
 
 		while(true) {
-			
+
 			//pop handlers until somebody responds. It is assumed that the default
 			//one will always be there.
 			$handler=array_pop($this->exception_handlers);
@@ -336,9 +369,10 @@ class router {
 	private interfaces\request_factory          $request_factory;
 	private interfaces\in_transformer_factory   $in_transformer_factory;
 	private interfaces\authorizer_factory       $authorizer_factory;
-	private interfaces\parameter_extractor_factory $parameter_extractor_factory;
+	private interfaces\argument_extractor_factory $argument_extractor_factory;
+	private interfaces\parameter_mapper_factory  $parameter_mapper_factory;
 	private interfaces\controller_factory       $controller_factory;
 	private interfaces\out_transformer_factory  $out_transformer_factory;
 	private interfaces\exception_handler_factory $exception_handler_factory;
-	private array								$exception_handlers=[];
+	private array                               $exception_handlers=[];
 }

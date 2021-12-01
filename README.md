@@ -29,7 +29,8 @@ The kind of things you are supposed to provide are:
 - something to build authorizers, and authorizers if need be.
 - something to build a mapper from a request to a controller (a path mapper) and path_mapper themselves.
 - something to build controllers
-- something to build parameter extractors and the parameters extractors themselves.
+- something to build parameter extractors and the parameter extractors themselves.
+- something to build parameter mappers and the parameter mappers themselves.
 - something to build output transformers and the output transformers themselves.
 - something to build error handlers and the error handlers themselves.
 
@@ -65,7 +66,11 @@ You must provide something to do the work. The only things that the router asks 
 
 ### parameter extractors:
 
-You may provide a factory to build objects that can take a request and extract parameters (like function parameters) for your controllers. These can be extracted from json bodies, url encoded requests, query strings and even the uri itself. The class parameter_maker is full of helpers for this job. The arguments for your controller methods must be somehow mapped (by the mapper) so the router knows how to forward them. In practice this is easy.
+You may provide a factory to build objects that can take a request and extract parameters (like function parameters) for your controllers. These can be extracted from json bodies, url encoded requests, query strings and even the uri itself. The class argument_maker is full of helpers for this job. The parameter for your controller methods must be somehow mapped (by the mapper) so the router knows how to forward them. In practice this is easy.
+
+### parameter mappers
+
+It may happen that you use a file to specify the mappings that the path_mapper must carry out. In that case, you will have declared a bunch of parameters there. A parameter mapper takes the name declared there and converts it into the name specified in the controller code itself, in case there are specific conventions in place.
 
 ### output transformers
 
@@ -81,7 +86,7 @@ Handlers will receive an Error or Exception and can test them with instanceof to
 
 ## a word about default parameters
 
-The router will attempt to locate parameters in the request for all your method arguments, even if you define default values for them, so any missing parameters (as defined by the argument class) will throw.
+The router will attempt to locate arguments in the request for all your method parameters, even if you define default values for them, so any missing parameters (as defined by the parameters class) will throw.
 
 ## the example
 
@@ -93,7 +98,7 @@ Ok, let's start by checking the example/src/external/what-goes-here file. Just f
 
 ### setting it up: paths
 
-Let's go to example/index.php and locate where "\rimplementation\uri_transformer" is built. This class wants a string passed to its constructor and the string means "what do I substract from the path part of my uri so I can get clean paths". 
+Let's go to example/index.php and locate where "\rimplementation\uri_transformer" is built. This class wants a string passed to its constructor and the string means "what do I substract from the path part of my uri so I can get clean paths".
 
 To be honest, I am just lazy. I run this stuff at localhost so my complete path may be something like /path/to/php-router/example... When I instruct my browser to do "blah" there I end up with "http://localhost/php-router/example/blah" and I only want the blah part. That's the job of the uri_transformer:
 

@@ -11,5 +11,5 @@ interface out_transformer_factory {
 /**
 *must build an output transformer factory.
 */
-	public function build_out_transformer(string $_name) : ?out_transformer;
+	public function build_out_transformer(string $_name) : ?\srouter\interfaces\out_transformer;
 }
