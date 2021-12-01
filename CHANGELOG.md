@@ -12,9 +12,12 @@ Changes will be documented under Added, Changed, Deprecated, Removed, Fixed or S
 ## Unreleased
 ### Pending
 - Specify out_transformers for exception handlers.
-- Specify a mapping for srouter::argument name to PHP argument name, router.php circa 111.
-- Document the example?
 - Enforce route class arrays are of the specified type?
+
+## [v0.1.1]: 2021-12-01
+### Added
+- documentation
+- specify mapping for srouter::parameter name to PHP parameter name.
 
 ## [v0.1.0]: 2021-11-30
 ### Added
