@@ -14,6 +14,10 @@ Changes will be documented under Added, Changed, Deprecated, Removed, Fixed or S
 - Specify out_transformers for exception handlers.
 - Enforce route class arrays are of the specified type?
 
+## [v0.1.2]: 2021-12-06
+### Fixed
+- fixes header value casing appearing as lowercase
+
 ## [v0.1.1]: 2021-12-01
 ### Added
 - documentation

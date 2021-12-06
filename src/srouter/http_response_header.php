@@ -37,7 +37,7 @@ class http_response_header {
 */
 	public function __toString() : string {
 
-		return strtolower($this->name).":".strtolower($this->value);
+		return strtolower($this->name).":".$this->value;
 	}
 
 	private string $name;
