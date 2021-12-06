@@ -84,7 +84,7 @@ class router {
 			if(count($route->get_authorizers())) {
 
 				$this->logger->info("will perform authorization", self::log_module);
-				$this->authorize($route->get_authorizers(), $request);
+				$this->authorize($route->get_authorizers(), $request, $route);
 			}
 
 			$arguments=[];
@@ -241,7 +241,8 @@ class router {
 */
 	private function                        authorize(
 		array $_authorizers,
-		interfaces\request $_request
+		interfaces\request $_request,
+		\srouter\route $_route
 	) {
 
 		foreach($_authorizers as $key) {
@@ -254,7 +255,7 @@ class router {
 				throw new \srouter\exception\bad_dependency("fatal error, cannot build authorizer '$key'");
 			}
 
-			if(!$authorizer->authorize($_request)) {
+			if(!$authorizer->authorize($_request, $_route)) {
 
 				$this->logger->notice("$key authorization failed", self::log_module);
 				throw new \srouter\exception\unauthorized("failed to authorize using $key");

@@ -9,7 +9,9 @@ namespace srouter\interfaces;
 interface authorizer {
 
 /**
-*must return true if the request is authorized to proceed.
+*must return true if the request is authorized to proceed. The whole route is
+*sent along, because of extra information (like uri arguments) that might
+*reside there.
 */
-	public function authorize(\srouter\interfaces\request $_request) : bool;
+	public function authorize(\srouter\interfaces\request $_request, \srouter\route $_route) : bool;
 }

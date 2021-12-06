@@ -17,7 +17,8 @@ class logged_in_auth implements \srouter\interfaces\authorizer {
 	}
 
 	public function authorize(
-		\srouter\interfaces\request $_request
+		\srouter\interfaces\request $_request,
+		\srouter\route $_route
 	): bool {
 
 		if(!$_request->has_header("rolodex-auth-token")) {

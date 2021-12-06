@@ -1,0 +1,802 @@
+2021-11-30 15:32:52 [INFO] <srouter>: will build the request
+2021-11-30 15:32:53 [INFO] <srouter>: http://localhost/php-router/example/ becomes /php-router/example/
+2021-11-30 15:32:53 [INFO] <srouter>: will map GET : /php-router/example/ to a route
+2021-11-30 15:32:53 [NOTICE] <srouter>: failed to map, will throw
+2021-11-30 16:32:50 [INFO] <srouter>: will build the request
+2021-11-30 16:32:50 [INFO] <srouter>: http://localhost/php-router/example/ becomes /php-router/example/
+2021-11-30 16:32:50 [INFO] <srouter>: will map GET : /php-router/example/ to a route
+2021-11-30 16:32:50 [NOTICE] <srouter>: failed to map, will throw
+2021-11-30 16:34:03 [INFO] <srouter>: will build the request
+2021-11-30 16:34:03 [INFO] <srouter>: http://localhost/php-router/example/ becomes /php-router/example/
+2021-11-30 16:34:03 [INFO] <srouter>: will map GET : /php-router/example/ to a route
+2021-11-30 16:34:03 [NOTICE] <srouter>: failed to map, will throw
+2021-11-30 16:34:16 [INFO] <srouter>: will build the request
+2021-11-30 16:34:16 [INFO] <srouter>: http://localhost/php-router/example/ becomes /php-router/example/
+2021-11-30 16:34:16 [INFO] <srouter>: will map GET : /php-router/example/ to a route
+2021-11-30 16:34:16 [NOTICE] <srouter>: failed to map, will throw
+2021-11-30 16:34:45 [INFO] <srouter>: will build the request
+2021-11-30 16:34:45 [INFO] <srouter>: http://localhost/php-router/example/ becomes /php-router/example/
+2021-11-30 16:34:45 [INFO] <srouter>: will map GET : /php-router/example/ to a route
+2021-11-30 16:34:45 [NOTICE] <srouter>: failed to map, will throw
+2021-11-30 16:35:00 [INFO] <srouter>: will build the request
+2021-11-30 16:35:00 [INFO] <srouter>: http://localhost/php-router/example/ becomes /php-router/example/
+2021-11-30 16:35:00 [INFO] <srouter>: will map GET : /php-router/example/ to a route
+2021-11-30 16:35:00 [NOTICE] <srouter>: failed to map, will throw
+2021-11-30 16:35:30 [INFO] <srouter>: will build the request
+2021-11-30 16:35:30 [INFO] <srouter>: http://localhost/php-router/example/ becomes /php-router/example/
+2021-11-30 16:35:30 [INFO] <srouter>: will map GET : /php-router/example/ to a route
+2021-11-30 16:35:30 [NOTICE] <srouter>: failed to map, will throw
+2021-11-30 16:36:44 [INFO] <srouter>: will build the request
+2021-11-30 16:36:44 [INFO] <srouter>: http://localhost/php-router/example/ becomes /php-router/example/
+2021-11-30 16:36:44 [INFO] <srouter>: will map GET : /php-router/example/ to a route
+2021-11-30 16:36:44 [NOTICE] <srouter>: failed to map, will throw
+2021-11-30 16:36:44 [WARNING] <default_exception_handler>:  (srouter\exception\not_found)
+2021-11-30 16:37:11 [INFO] <srouter>: will build the request
+2021-11-30 16:37:11 [INFO] <srouter>: http://localhost/php-router/example/ becomes /php-router/example/
+2021-11-30 16:37:11 [INFO] <srouter>: will map GET : /php-router/example/ to a route
+2021-11-30 16:37:11 [NOTICE] <srouter>: failed to map, will throw
+2021-11-30 16:37:11 [WARNING] <default_exception_handler>:  (srouter\exception\not_found)
+2021-11-30 16:37:30 [INFO] <srouter>: will build the request
+2021-11-30 16:37:30 [INFO] <srouter>: http://localhost/php-router/example/ becomes /php-router/example/
+2021-11-30 16:37:30 [INFO] <srouter>: will map GET : /php-router/example/ to a route
+2021-11-30 16:37:30 [NOTICE] <srouter>: failed to map, will throw
+2021-11-30 16:37:30 [WARNING] <default_exception_handler>:  (srouter\exception\not_found)
+2021-11-30 16:38:01 [INFO] <srouter>: will build the request
+2021-11-30 16:38:01 [INFO] <srouter>: http://localhost/php-router/example/ becomes /php-router/example/
+2021-11-30 16:38:01 [INFO] <srouter>: will map GET : /php-router/example/ to a route
+2021-11-30 16:38:01 [NOTICE] <srouter>: failed to map, will throw
+2021-11-30 16:38:01 [WARNING] <default_exception_handler>:  (srouter\exception\not_found)
+2021-11-30 16:38:07 [INFO] <srouter>: will build the request
+2021-11-30 16:38:07 [INFO] <srouter>: http://localhost/php-router/example/version becomes /php-router/example/version
+2021-11-30 16:38:07 [INFO] <srouter>: will map GET : /php-router/example/version to a route
+2021-11-30 16:38:07 [NOTICE] <srouter>: failed to map, will throw
+2021-11-30 16:38:07 [WARNING] <default_exception_handler>:  (srouter\exception\not_found)
+2021-11-30 16:39:09 [INFO] <srouter>: will build the request
+2021-11-30 16:39:09 [INFO] <srouter>: http://localhost/php-router/example/version becomes version
+2021-11-30 16:39:09 [INFO] <srouter>: will map GET : version to a route
+2021-11-30 16:39:09 [INFO] <srouter>: will perform authorization
+2021-11-30 16:39:09 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 16:39:09 [NOTICE] <srouter>: logged_in authorization failed
+2021-11-30 16:39:40 [INFO] <srouter>: will build the request
+2021-11-30 16:39:40 [INFO] <srouter>: http://localhost/php-router/example/version becomes version
+2021-11-30 16:39:40 [INFO] <srouter>: will map GET : version to a route
+2021-11-30 16:39:40 [INFO] <srouter>: will perform authorization
+2021-11-30 16:39:40 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 16:39:40 [NOTICE] <srouter>: logged_in authorization failed
+2021-11-30 16:39:40 [WARNING] <default_exception_handler>: failed to authorize using logged_in (srouter\exception\unauthorized)
+2021-11-30 16:39:45 [INFO] <srouter>: will build the request
+2021-11-30 16:39:45 [INFO] <srouter>: http://localhost/php-router/example/login becomes login
+2021-11-30 16:39:45 [INFO] <srouter>: will map GET : login to a route
+2021-11-30 16:39:45 [NOTICE] <srouter>: failed to map, will throw
+2021-11-30 16:39:45 [WARNING] <default_exception_handler>:  (srouter\exception\not_found)
+2021-11-30 16:40:40 [INFO] <srouter>: will build the request
+2021-11-30 16:40:40 [INFO] <srouter>: http://localhost/php-router/example/login becomes login
+2021-11-30 16:40:40 [INFO] <srouter>: will map GET : login to a route
+2021-11-30 16:40:40 [NOTICE] <srouter>: failed to map, will throw
+2021-11-30 16:40:40 [WARNING] <default_exception_handler>:  (srouter\exception\not_found)
+2021-11-30 16:40:54 [INFO] <srouter>: will build the request
+2021-11-30 16:40:54 [INFO] <srouter>: http://localhost/php-router/example/login becomes login
+2021-11-30 16:40:54 [INFO] <srouter>: will map POST : login to a route
+2021-11-30 16:40:54 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 16:40:54 [WARNING] <default_exception_handler>: could not decode json request body: Syntax error (Exception)
+2021-11-30 16:42:11 [INFO] <srouter>: will build the request
+2021-11-30 16:42:11 [INFO] <srouter>: http://localhost/php-router/example/login becomes login
+2021-11-30 16:42:11 [INFO] <srouter>: will map POST : login to a route
+2021-11-30 16:42:11 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 16:42:11 [WARNING] <default_exception_handler>: could not load class srouter\exception\bad_request (Exception)
+2021-11-30 16:47:39 [INFO] <srouter>: will build the request
+2021-11-30 16:47:39 [INFO] <srouter>: http://localhost/php-router/example/login becomes login
+2021-11-30 16:47:39 [INFO] <srouter>: will map POST : login to a route
+2021-11-30 16:47:39 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 16:48:32 [INFO] <srouter>: will build the request
+2021-11-30 16:48:32 [INFO] <srouter>: http://localhost/php-router/example/login becomes login
+2021-11-30 16:48:32 [INFO] <srouter>: will map POST : login to a route
+2021-11-30 16:48:32 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 16:48:46 [INFO] <srouter>: will build the request
+2021-11-30 16:48:46 [INFO] <srouter>: http://localhost/php-router/example/login becomes login
+2021-11-30 16:48:46 [INFO] <srouter>: will map POST : login to a route
+2021-11-30 16:48:46 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 16:48:46 [INFO] <>: attempting to handle 'Error' with srouter\default_exception_handler
+2021-11-30 16:49:19 [INFO] <srouter>: will build the request
+2021-11-30 16:49:19 [INFO] <srouter>: http://localhost/php-router/example/login becomes login
+2021-11-30 16:49:19 [INFO] <srouter>: will map POST : login to a route
+2021-11-30 16:49:19 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 16:49:19 [INFO] <>: attempting to handle 'Error' with srouter\default_exception_handler
+2021-11-30 16:50:04 [INFO] <srouter>: will build the request
+2021-11-30 16:50:04 [INFO] <srouter>: http://localhost/php-router/example/login becomes login
+2021-11-30 16:50:04 [INFO] <srouter>: will map POST : login to a route
+2021-11-30 16:50:04 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 16:50:04 [INFO] <>: attempting to handle 'Error' with srouter\default_exception_handler
+2021-11-30 16:50:04 [WARNING] <>: Class 'srouter\exception\bad_request' not found (Error, /home/daniel/devel/htdocs/php-router/example/src/rimplementation/json_parameter_extractor.php:50) caught by default error handler
+2021-11-30 16:50:21 [INFO] <srouter>: will build the request
+2021-11-30 16:50:21 [INFO] <srouter>: http://localhost/php-router/example/login becomes login
+2021-11-30 16:50:21 [INFO] <srouter>: will map POST : login to a route
+2021-11-30 16:50:21 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 16:50:21 [INFO] <>: attempting to handle 'srouter\exception\bad_request' with srouter\default_exception_handler
+2021-11-30 16:50:21 [WARNING] <default_exception_handler>: could not decode json request body: Syntax error (srouter\exception\bad_request)
+2021-11-30 16:50:51 [INFO] <srouter>: will build the request
+2021-11-30 16:50:51 [INFO] <srouter>: http://localhost/php-router/example/login becomes login
+2021-11-30 16:50:51 [INFO] <srouter>: will map POST : login to a route
+2021-11-30 16:50:51 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 16:50:51 [INFO] <>: attempting to handle 'srouter\exception\bad_request' with srouter\default_exception_handler
+2021-11-30 16:50:51 [WARNING] <default_exception_handler>: could not decode json request body: Syntax error (srouter\exception\bad_request)
+2021-11-30 16:50:56 [INFO] <srouter>: will build the request
+2021-11-30 16:50:56 [INFO] <srouter>: http://localhost/php-router/example/login becomes login
+2021-11-30 16:50:56 [INFO] <srouter>: will map POST : login to a route
+2021-11-30 16:50:56 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 16:50:56 [INFO] <srouter>: will attempt to find value for argument '_username'
+2021-11-30 16:50:56 [INFO] <srouter>: will attempt to find value for argument '_pass'
+2021-11-30 16:50:56 [INFO] <srouter>: will perform execution now...
+2021-11-30 16:50:56 [INFO] <srouter>: will transform and return output...
+2021-11-30 16:51:21 [INFO] <srouter>: will build the request
+2021-11-30 16:51:21 [INFO] <srouter>: http://localhost/php-router/example/login becomes login
+2021-11-30 16:51:21 [INFO] <srouter>: will map POST : login to a route
+2021-11-30 16:51:21 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 16:51:21 [INFO] <srouter>: will attempt to find value for argument '_username'
+2021-11-30 16:51:21 [INFO] <srouter>: will attempt to find value for argument '_pass'
+2021-11-30 16:51:21 [INFO] <srouter>: will perform execution now...
+2021-11-30 16:51:21 [INFO] <srouter>: will transform and return output...
+2021-11-30 16:52:08 [INFO] <srouter>: will build the request
+2021-11-30 16:52:08 [INFO] <srouter>: http://localhost/php-router/example/version becomes version
+2021-11-30 16:52:08 [INFO] <srouter>: will map GET : version to a route
+2021-11-30 16:52:08 [INFO] <srouter>: will perform authorization
+2021-11-30 16:52:08 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 16:52:08 [INFO] <srouter>: will perform execution now...
+2021-11-30 16:52:08 [INFO] <srouter>: will transform and return output...
+2021-11-30 16:52:11 [INFO] <srouter>: will build the request
+2021-11-30 16:52:11 [INFO] <srouter>: http://localhost/php-router/example/version becomes version
+2021-11-30 16:52:11 [INFO] <srouter>: will map GET : version to a route
+2021-11-30 16:52:11 [INFO] <srouter>: will perform authorization
+2021-11-30 16:52:11 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 16:52:11 [INFO] <srouter>: will perform execution now...
+2021-11-30 16:52:11 [INFO] <srouter>: will transform and return output...
+2021-11-30 16:52:12 [INFO] <srouter>: will build the request
+2021-11-30 16:52:12 [INFO] <srouter>: http://localhost/php-router/example/version becomes version
+2021-11-30 16:52:12 [INFO] <srouter>: will map GET : version to a route
+2021-11-30 16:52:12 [INFO] <srouter>: will perform authorization
+2021-11-30 16:52:12 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 16:52:12 [INFO] <srouter>: will perform execution now...
+2021-11-30 16:52:12 [INFO] <srouter>: will transform and return output...
+2021-11-30 16:52:13 [INFO] <srouter>: will build the request
+2021-11-30 16:52:13 [INFO] <srouter>: http://localhost/php-router/example/version becomes version
+2021-11-30 16:52:13 [INFO] <srouter>: will map GET : version to a route
+2021-11-30 16:52:13 [INFO] <srouter>: will perform authorization
+2021-11-30 16:52:13 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 16:52:13 [INFO] <srouter>: will perform execution now...
+2021-11-30 16:52:13 [INFO] <srouter>: will transform and return output...
+2021-11-30 16:52:14 [INFO] <srouter>: will build the request
+2021-11-30 16:52:14 [INFO] <srouter>: http://localhost/php-router/example/version becomes version
+2021-11-30 16:52:14 [INFO] <srouter>: will map GET : version to a route
+2021-11-30 16:52:14 [INFO] <srouter>: will perform authorization
+2021-11-30 16:52:14 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 16:52:14 [INFO] <srouter>: will perform execution now...
+2021-11-30 16:52:14 [INFO] <srouter>: will transform and return output...
+2021-11-30 16:52:20 [INFO] <srouter>: will build the request
+2021-11-30 16:52:20 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 16:52:20 [INFO] <srouter>: will map GET : contacts to a route
+2021-11-30 16:52:20 [INFO] <srouter>: will perform authorization
+2021-11-30 16:52:20 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 16:52:20 [NOTICE] <srouter>: will extract arguments with 'query'
+2021-11-30 16:52:20 [INFO] <srouter>: will attempt to find value for argument '_filter_number'
+2021-11-30 16:52:20 [INFO] <srouter>: will attempt to find value for argument '_filter_name'
+2021-11-30 16:52:20 [INFO] <srouter>: will perform execution now...
+2021-11-30 16:52:20 [INFO] <>: attempting to handle 'ParseError' with srouter\default_exception_handler
+2021-11-30 16:52:20 [WARNING] <>: syntax error, unexpected 'private' (T_PRIVATE), expecting ';' or ',' (ParseError, /home/daniel/devel/htdocs/php-router/example/src/rolodex/rolodex.php:189) caught by default error handler
+2021-11-30 16:52:56 [INFO] <srouter>: will build the request
+2021-11-30 16:52:56 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 16:52:56 [INFO] <srouter>: will map GET : contacts to a route
+2021-11-30 16:52:56 [INFO] <srouter>: will perform authorization
+2021-11-30 16:52:56 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 16:52:56 [NOTICE] <srouter>: will extract arguments with 'query'
+2021-11-30 16:52:56 [INFO] <srouter>: will attempt to find value for argument '_filter_number'
+2021-11-30 16:52:56 [INFO] <srouter>: will attempt to find value for argument '_filter_name'
+2021-11-30 16:52:56 [INFO] <srouter>: will perform execution now...
+2021-11-30 16:52:56 [INFO] <>: attempting to handle 'rolodex\exception' with srouter\default_exception_handler
+2021-11-30 16:52:56 [WARNING] <default_exception_handler>: bad rolodex file, first line is expected to be an integer (rolodex\exception)
+2021-11-30 16:54:35 [INFO] <srouter>: will build the request
+2021-11-30 16:54:35 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 16:54:35 [INFO] <srouter>: will map GET : contacts to a route
+2021-11-30 16:54:35 [INFO] <srouter>: will perform authorization
+2021-11-30 16:54:35 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 16:54:35 [NOTICE] <srouter>: will extract arguments with 'query'
+2021-11-30 16:54:35 [INFO] <srouter>: will attempt to find value for argument '_filter_number'
+2021-11-30 16:54:35 [INFO] <srouter>: will attempt to find value for argument '_filter_name'
+2021-11-30 16:54:35 [INFO] <srouter>: will perform execution now...
+2021-11-30 16:54:35 [INFO] <srouter>: will transform and return output...
+2021-11-30 16:54:38 [INFO] <srouter>: will build the request
+2021-11-30 16:54:38 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 16:54:38 [INFO] <srouter>: will map GET : contacts to a route
+2021-11-30 16:54:38 [INFO] <srouter>: will perform authorization
+2021-11-30 16:54:38 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 16:54:38 [NOTICE] <srouter>: will extract arguments with 'query'
+2021-11-30 16:54:38 [INFO] <srouter>: will attempt to find value for argument '_filter_number'
+2021-11-30 16:54:38 [INFO] <srouter>: will attempt to find value for argument '_filter_name'
+2021-11-30 16:54:38 [INFO] <srouter>: will perform execution now...
+2021-11-30 16:54:38 [INFO] <srouter>: will transform and return output...
+2021-11-30 16:54:39 [INFO] <srouter>: will build the request
+2021-11-30 16:54:39 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 16:54:39 [INFO] <srouter>: will map GET : contacts to a route
+2021-11-30 16:54:39 [INFO] <srouter>: will perform authorization
+2021-11-30 16:54:39 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 16:54:39 [NOTICE] <srouter>: will extract arguments with 'query'
+2021-11-30 16:54:39 [INFO] <srouter>: will attempt to find value for argument '_filter_number'
+2021-11-30 16:54:39 [INFO] <srouter>: will attempt to find value for argument '_filter_name'
+2021-11-30 16:54:39 [INFO] <srouter>: will perform execution now...
+2021-11-30 16:54:39 [INFO] <srouter>: will transform and return output...
+2021-11-30 16:54:40 [INFO] <srouter>: will build the request
+2021-11-30 16:54:40 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 16:54:40 [INFO] <srouter>: will map GET : contacts to a route
+2021-11-30 16:54:40 [INFO] <srouter>: will perform authorization
+2021-11-30 16:54:40 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 16:54:40 [NOTICE] <srouter>: will extract arguments with 'query'
+2021-11-30 16:54:40 [INFO] <srouter>: will attempt to find value for argument '_filter_number'
+2021-11-30 16:54:40 [INFO] <srouter>: will attempt to find value for argument '_filter_name'
+2021-11-30 16:54:40 [INFO] <srouter>: will perform execution now...
+2021-11-30 16:54:40 [INFO] <srouter>: will transform and return output...
+2021-11-30 16:54:45 [INFO] <srouter>: will build the request
+2021-11-30 16:54:45 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 16:54:45 [INFO] <srouter>: will map POST : contacts to a route
+2021-11-30 16:54:45 [INFO] <srouter>: will perform authorization
+2021-11-30 16:54:45 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 16:54:45 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 16:54:45 [INFO] <>: attempting to handle 'srouter\exception\bad_request' with srouter\default_exception_handler
+2021-11-30 16:54:45 [WARNING] <default_exception_handler>: could not decode json request body: Syntax error (srouter\exception\bad_request)
+2021-11-30 16:54:57 [INFO] <srouter>: will build the request
+2021-11-30 16:54:57 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 16:54:57 [INFO] <srouter>: will map POST : contacts to a route
+2021-11-30 16:54:57 [INFO] <srouter>: will perform authorization
+2021-11-30 16:54:57 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 16:54:57 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 16:54:57 [INFO] <>: attempting to handle 'srouter\exception\missing_compulsory_parameter' with srouter\default_exception_handler
+2021-11-30 16:54:57 [WARNING] <default_exception_handler>: missing compulsory parameter 'name' (srouter\exception\missing_compulsory_parameter)
+2021-11-30 16:55:06 [INFO] <srouter>: will build the request
+2021-11-30 16:55:06 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 16:55:06 [INFO] <srouter>: will map POST : contacts to a route
+2021-11-30 16:55:06 [INFO] <srouter>: will perform authorization
+2021-11-30 16:55:06 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 16:55:06 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 16:55:06 [INFO] <>: attempting to handle 'srouter\exception\missing_compulsory_parameter' with srouter\default_exception_handler
+2021-11-30 16:55:06 [WARNING] <default_exception_handler>: missing compulsory parameter 'phone' (srouter\exception\missing_compulsory_parameter)
+2021-11-30 16:55:12 [INFO] <srouter>: will build the request
+2021-11-30 16:55:12 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 16:55:12 [INFO] <srouter>: will map POST : contacts to a route
+2021-11-30 16:55:12 [INFO] <srouter>: will perform authorization
+2021-11-30 16:55:12 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 16:55:12 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 16:55:12 [INFO] <srouter>: will attempt to find value for argument '_name'
+2021-11-30 16:55:12 [INFO] <srouter>: will attempt to find value for argument '_phone'
+2021-11-30 16:55:12 [INFO] <srouter>: will attempt to find value for argument '_company'
+2021-11-30 16:55:12 [INFO] <srouter>: will perform execution now...
+2021-11-30 16:55:12 [INFO] <>: attempting to handle 'Exception' with srouter\default_exception_handler
+2021-11-30 16:55:12 [WARNING] <default_exception_handler>: could not load class rolodex_contact (Exception)
+2021-11-30 16:55:37 [INFO] <srouter>: will build the request
+2021-11-30 16:55:37 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 16:55:37 [INFO] <srouter>: will map POST : contacts to a route
+2021-11-30 16:55:37 [INFO] <srouter>: will perform authorization
+2021-11-30 16:55:37 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 16:55:37 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 16:55:37 [INFO] <srouter>: will attempt to find value for argument '_name'
+2021-11-30 16:55:37 [INFO] <srouter>: will attempt to find value for argument '_phone'
+2021-11-30 16:55:37 [INFO] <srouter>: will attempt to find value for argument '_company'
+2021-11-30 16:55:37 [INFO] <srouter>: will perform execution now...
+2021-11-30 16:55:37 [INFO] <srouter>: attempting to handle 'Exception' with srouter\default_exception_handler
+2021-11-30 16:55:37 [WARNING] <default_exception_handler>: could not load class rolodex_contact (Exception)
+2021-11-30 16:56:33 [INFO] <srouter>: will build the request
+2021-11-30 16:56:33 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 16:56:33 [INFO] <srouter>: will map POST : contacts to a route
+2021-11-30 16:56:33 [INFO] <srouter>: will perform authorization
+2021-11-30 16:56:33 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 16:56:33 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 16:56:33 [INFO] <srouter>: will attempt to find value for argument '_name'
+2021-11-30 16:56:33 [INFO] <srouter>: will attempt to find value for argument '_phone'
+2021-11-30 16:56:33 [INFO] <srouter>: will attempt to find value for argument '_company'
+2021-11-30 16:56:33 [INFO] <srouter>: will perform execution now...
+2021-11-30 16:56:33 [INFO] <srouter>: attempting to handle 'Error' with srouter\default_exception_handler
+2021-11-30 16:56:33 [WARNING] <>: Call to undefined method rolodex\rolodex_contact::set_phone() (Error, /home/daniel/devel/htdocs/php-router/example/src/app/controller/contacts.php:50) caught by default error handler
+2021-11-30 16:56:43 [INFO] <srouter>: will build the request
+2021-11-30 16:56:43 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 16:56:43 [INFO] <srouter>: will map POST : contacts to a route
+2021-11-30 16:56:43 [INFO] <srouter>: will perform authorization
+2021-11-30 16:56:43 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 16:56:43 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 16:56:43 [INFO] <srouter>: will attempt to find value for argument '_name'
+2021-11-30 16:56:43 [INFO] <srouter>: will attempt to find value for argument '_phone'
+2021-11-30 16:56:43 [INFO] <srouter>: will attempt to find value for argument '_company'
+2021-11-30 16:56:43 [INFO] <srouter>: will perform execution now...
+2021-11-30 16:56:43 [INFO] <srouter>: attempting to handle 'Error' with srouter\default_exception_handler
+2021-11-30 16:56:43 [WARNING] <>: Call to undefined method rolodex\rolodex_contact::set_phone() (Error, /home/daniel/devel/htdocs/php-router/example/src/app/controller/contacts.php:50) caught by default error handler
+2021-11-30 16:56:50 [INFO] <srouter>: will build the request
+2021-11-30 16:56:50 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 16:56:50 [INFO] <srouter>: will map POST : contacts to a route
+2021-11-30 16:56:50 [INFO] <srouter>: will perform authorization
+2021-11-30 16:56:50 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 16:56:50 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 16:56:50 [INFO] <srouter>: will attempt to find value for argument '_name'
+2021-11-30 16:56:50 [INFO] <srouter>: will attempt to find value for argument '_phone'
+2021-11-30 16:56:50 [INFO] <srouter>: will attempt to find value for argument '_company'
+2021-11-30 16:56:50 [INFO] <srouter>: will perform execution now...
+2021-11-30 16:56:50 [INFO] <srouter>: attempting to handle 'Error' with srouter\default_exception_handler
+2021-11-30 16:56:50 [WARNING] <>: Call to undefined method rolodex\rolodex_contact::set_phone() (Error, /home/daniel/devel/htdocs/php-router/example/src/app/controller/contacts.php:50) caught by default error handler
+2021-11-30 16:57:07 [INFO] <srouter>: will build the request
+2021-11-30 16:57:07 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 16:57:07 [INFO] <srouter>: will map POST : contacts to a route
+2021-11-30 16:57:07 [INFO] <srouter>: will perform authorization
+2021-11-30 16:57:07 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 16:57:07 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 16:57:07 [INFO] <srouter>: will attempt to find value for argument '_name'
+2021-11-30 16:57:07 [INFO] <srouter>: will attempt to find value for argument '_phone'
+2021-11-30 16:57:07 [INFO] <srouter>: will attempt to find value for argument '_company'
+2021-11-30 16:57:07 [INFO] <srouter>: will perform execution now...
+2021-11-30 16:57:07 [INFO] <srouter>: attempting to handle 'Error' with srouter\default_exception_handler
+2021-11-30 16:57:07 [WARNING] <>: Call to a member function get_id() on null (Error, /home/daniel/devel/htdocs/php-router/example/src/app/controller/contacts.php:58) caught by default error handler
+2021-11-30 16:58:15 [INFO] <srouter>: will build the request
+2021-11-30 16:58:15 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 16:58:15 [INFO] <srouter>: will map POST : contacts to a route
+2021-11-30 16:58:15 [INFO] <srouter>: will perform authorization
+2021-11-30 16:58:15 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 16:58:15 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 16:58:15 [INFO] <srouter>: will attempt to find value for argument '_name'
+2021-11-30 16:58:15 [INFO] <srouter>: will attempt to find value for argument '_phone'
+2021-11-30 16:58:15 [INFO] <srouter>: will attempt to find value for argument '_company'
+2021-11-30 16:58:15 [INFO] <srouter>: will perform execution now...
+2021-11-30 16:58:15 [INFO] <srouter>: will transform and return output...
+2021-11-30 17:00:03 [INFO] <srouter>: will build the request
+2021-11-30 17:00:03 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 17:00:03 [INFO] <srouter>: will map GET : contacts to a route
+2021-11-30 17:00:03 [INFO] <srouter>: will perform authorization
+2021-11-30 17:00:03 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:00:03 [NOTICE] <srouter>: will extract arguments with 'query'
+2021-11-30 17:00:03 [INFO] <srouter>: will attempt to find value for argument '_filter_number'
+2021-11-30 17:00:03 [INFO] <srouter>: will attempt to find value for argument '_filter_name'
+2021-11-30 17:00:03 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:00:03 [INFO] <srouter>: will transform and return output...
+2021-11-30 17:00:12 [INFO] <srouter>: will build the request
+2021-11-30 17:00:12 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 17:00:12 [INFO] <srouter>: will map POST : contacts to a route
+2021-11-30 17:00:12 [INFO] <srouter>: will perform authorization
+2021-11-30 17:00:12 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:00:12 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 17:00:12 [INFO] <srouter>: will attempt to find value for argument '_name'
+2021-11-30 17:00:12 [INFO] <srouter>: will attempt to find value for argument '_phone'
+2021-11-30 17:00:12 [INFO] <srouter>: will attempt to find value for argument '_company'
+2021-11-30 17:00:12 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:00:12 [INFO] <srouter>: attempting to handle 'Exception' with srouter\default_exception_handler
+2021-11-30 17:00:12 [WARNING] <default_exception_handler>: could not load class jsonSeralizable (Exception)
+2021-11-30 17:00:28 [INFO] <srouter>: will build the request
+2021-11-30 17:00:28 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 17:00:28 [INFO] <srouter>: will map POST : contacts to a route
+2021-11-30 17:00:28 [INFO] <srouter>: will perform authorization
+2021-11-30 17:00:28 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:00:28 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 17:00:28 [INFO] <srouter>: will attempt to find value for argument '_name'
+2021-11-30 17:00:28 [INFO] <srouter>: will attempt to find value for argument '_phone'
+2021-11-30 17:00:28 [INFO] <srouter>: will attempt to find value for argument '_company'
+2021-11-30 17:00:28 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:00:28 [INFO] <srouter>: will transform and return output...
+2021-11-30 17:01:10 [INFO] <srouter>: will build the request
+2021-11-30 17:01:10 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 17:01:10 [INFO] <srouter>: will map POST : contacts to a route
+2021-11-30 17:01:10 [INFO] <srouter>: will perform authorization
+2021-11-30 17:01:10 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:01:10 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 17:01:10 [INFO] <srouter>: will attempt to find value for argument '_name'
+2021-11-30 17:01:10 [INFO] <srouter>: will attempt to find value for argument '_phone'
+2021-11-30 17:01:10 [INFO] <srouter>: will attempt to find value for argument '_company'
+2021-11-30 17:01:10 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:01:10 [INFO] <srouter>: will transform and return output...
+2021-11-30 17:01:11 [INFO] <srouter>: will build the request
+2021-11-30 17:01:11 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 17:01:11 [INFO] <srouter>: will map GET : contacts to a route
+2021-11-30 17:01:11 [INFO] <srouter>: will perform authorization
+2021-11-30 17:01:11 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:01:11 [NOTICE] <srouter>: will extract arguments with 'query'
+2021-11-30 17:01:11 [INFO] <srouter>: will attempt to find value for argument '_filter_number'
+2021-11-30 17:01:11 [INFO] <srouter>: will attempt to find value for argument '_filter_name'
+2021-11-30 17:01:11 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:01:11 [INFO] <srouter>: attempting to handle 'rolodex\exception' with srouter\default_exception_handler
+2021-11-30 17:01:11 [WARNING] <default_exception_handler>: bad rolodex file, first line is expected to be an integer (rolodex\exception)
+2021-11-30 17:01:48 [INFO] <srouter>: will build the request
+2021-11-30 17:01:48 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 17:01:48 [INFO] <srouter>: will map GET : contacts to a route
+2021-11-30 17:01:48 [INFO] <srouter>: will perform authorization
+2021-11-30 17:01:48 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:01:48 [NOTICE] <srouter>: will extract arguments with 'query'
+2021-11-30 17:01:48 [INFO] <srouter>: will attempt to find value for argument '_filter_number'
+2021-11-30 17:01:48 [INFO] <srouter>: will attempt to find value for argument '_filter_name'
+2021-11-30 17:01:48 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:01:48 [INFO] <srouter>: attempting to handle 'rolodex\exception' with srouter\default_exception_handler
+2021-11-30 17:01:48 [WARNING] <default_exception_handler>: bad rolodex file, contact lines are supposed to have three tabs (rolodex\exception)
+2021-11-30 17:01:53 [INFO] <srouter>: will build the request
+2021-11-30 17:01:53 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 17:01:53 [INFO] <srouter>: will map POST : contacts to a route
+2021-11-30 17:01:53 [INFO] <srouter>: will perform authorization
+2021-11-30 17:01:53 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:01:53 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 17:01:53 [INFO] <srouter>: will attempt to find value for argument '_name'
+2021-11-30 17:01:53 [INFO] <srouter>: will attempt to find value for argument '_phone'
+2021-11-30 17:01:53 [INFO] <srouter>: will attempt to find value for argument '_company'
+2021-11-30 17:01:53 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:01:53 [INFO] <srouter>: attempting to handle 'rolodex\exception' with srouter\default_exception_handler
+2021-11-30 17:01:53 [WARNING] <default_exception_handler>: bad rolodex file, contact lines are supposed to have three tabs (rolodex\exception)
+2021-11-30 17:02:00 [INFO] <srouter>: will build the request
+2021-11-30 17:02:00 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 17:02:00 [INFO] <srouter>: will map POST : contacts to a route
+2021-11-30 17:02:00 [INFO] <srouter>: will perform authorization
+2021-11-30 17:02:00 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:02:00 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 17:02:00 [INFO] <srouter>: will attempt to find value for argument '_name'
+2021-11-30 17:02:00 [INFO] <srouter>: will attempt to find value for argument '_phone'
+2021-11-30 17:02:00 [INFO] <srouter>: will attempt to find value for argument '_company'
+2021-11-30 17:02:00 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:02:00 [INFO] <srouter>: will transform and return output...
+2021-11-30 17:02:26 [INFO] <srouter>: will build the request
+2021-11-30 17:02:26 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 17:02:26 [INFO] <srouter>: will map POST : contacts to a route
+2021-11-30 17:02:26 [INFO] <srouter>: will perform authorization
+2021-11-30 17:02:26 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:02:26 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 17:02:26 [INFO] <srouter>: will attempt to find value for argument '_name'
+2021-11-30 17:02:26 [INFO] <srouter>: will attempt to find value for argument '_phone'
+2021-11-30 17:02:26 [INFO] <srouter>: will attempt to find value for argument '_company'
+2021-11-30 17:02:26 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:02:26 [INFO] <srouter>: will transform and return output...
+2021-11-30 17:02:31 [INFO] <srouter>: will build the request
+2021-11-30 17:02:31 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 17:02:31 [INFO] <srouter>: will map GET : contacts to a route
+2021-11-30 17:02:31 [INFO] <srouter>: will perform authorization
+2021-11-30 17:02:31 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:02:31 [NOTICE] <srouter>: will extract arguments with 'query'
+2021-11-30 17:02:31 [INFO] <srouter>: will attempt to find value for argument '_filter_number'
+2021-11-30 17:02:31 [INFO] <srouter>: will attempt to find value for argument '_filter_name'
+2021-11-30 17:02:31 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:02:31 [INFO] <srouter>: attempting to handle 'rolodex\exception' with srouter\default_exception_handler
+2021-11-30 17:02:31 [WARNING] <default_exception_handler>: bad rolodex file, contact lines are supposed to have three tabs (rolodex\exception)
+2021-11-30 17:02:46 [INFO] <srouter>: will build the request
+2021-11-30 17:02:46 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 17:02:46 [INFO] <srouter>: will map POST : contacts to a route
+2021-11-30 17:02:46 [INFO] <srouter>: will perform authorization
+2021-11-30 17:02:46 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:02:46 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 17:02:47 [INFO] <srouter>: will attempt to find value for argument '_name'
+2021-11-30 17:02:47 [INFO] <srouter>: will attempt to find value for argument '_phone'
+2021-11-30 17:02:47 [INFO] <srouter>: will attempt to find value for argument '_company'
+2021-11-30 17:02:47 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:02:47 [INFO] <srouter>: attempting to handle 'rolodex\exception' with srouter\default_exception_handler
+2021-11-30 17:02:47 [WARNING] <default_exception_handler>: bad rolodex file, contact lines are supposed to have three tabs (rolodex\exception)
+2021-11-30 17:03:52 [INFO] <srouter>: will build the request
+2021-11-30 17:03:52 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 17:03:52 [INFO] <srouter>: will map POST : contacts to a route
+2021-11-30 17:03:52 [INFO] <srouter>: will perform authorization
+2021-11-30 17:03:52 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:03:52 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 17:03:52 [INFO] <srouter>: will attempt to find value for argument '_name'
+2021-11-30 17:03:52 [INFO] <srouter>: will attempt to find value for argument '_phone'
+2021-11-30 17:03:52 [INFO] <srouter>: will attempt to find value for argument '_company'
+2021-11-30 17:03:52 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:03:52 [INFO] <srouter>: attempting to handle 'rolodex\exception' with srouter\default_exception_handler
+2021-11-30 17:03:52 [WARNING] <default_exception_handler>: bad rolodex file, contact lines are supposed to have 3 tabs, got 0 (rolodex\exception)
+2021-11-30 17:03:53 [INFO] <srouter>: will build the request
+2021-11-30 17:03:53 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 17:03:53 [INFO] <srouter>: will map POST : contacts to a route
+2021-11-30 17:03:53 [INFO] <srouter>: will perform authorization
+2021-11-30 17:03:53 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:03:53 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 17:03:53 [INFO] <srouter>: will attempt to find value for argument '_name'
+2021-11-30 17:03:53 [INFO] <srouter>: will attempt to find value for argument '_phone'
+2021-11-30 17:03:53 [INFO] <srouter>: will attempt to find value for argument '_company'
+2021-11-30 17:03:53 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:03:53 [INFO] <srouter>: attempting to handle 'rolodex\exception' with srouter\default_exception_handler
+2021-11-30 17:03:53 [WARNING] <default_exception_handler>: bad rolodex file, contact lines are supposed to have 3 tabs, got 0 (rolodex\exception)
+2021-11-30 17:04:11 [INFO] <srouter>: will build the request
+2021-11-30 17:04:11 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 17:04:11 [INFO] <srouter>: will map POST : contacts to a route
+2021-11-30 17:04:11 [INFO] <srouter>: will perform authorization
+2021-11-30 17:04:11 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:04:11 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 17:04:11 [INFO] <srouter>: will attempt to find value for argument '_name'
+2021-11-30 17:04:11 [INFO] <srouter>: will attempt to find value for argument '_phone'
+2021-11-30 17:04:11 [INFO] <srouter>: will attempt to find value for argument '_company'
+2021-11-30 17:04:11 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:04:11 [INFO] <srouter>: will transform and return output...
+2021-11-30 17:04:14 [INFO] <srouter>: will build the request
+2021-11-30 17:04:14 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 17:04:14 [INFO] <srouter>: will map GET : contacts to a route
+2021-11-30 17:04:14 [INFO] <srouter>: will perform authorization
+2021-11-30 17:04:14 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:04:14 [NOTICE] <srouter>: will extract arguments with 'query'
+2021-11-30 17:04:14 [INFO] <srouter>: will attempt to find value for argument '_filter_number'
+2021-11-30 17:04:14 [INFO] <srouter>: will attempt to find value for argument '_filter_name'
+2021-11-30 17:04:14 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:04:14 [INFO] <srouter>: will transform and return output...
+2021-11-30 17:04:22 [INFO] <srouter>: will build the request
+2021-11-30 17:04:22 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 17:04:22 [INFO] <srouter>: will map GET : contacts to a route
+2021-11-30 17:04:22 [INFO] <srouter>: will perform authorization
+2021-11-30 17:04:22 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:04:22 [NOTICE] <srouter>: will extract arguments with 'query'
+2021-11-30 17:04:22 [INFO] <srouter>: will attempt to find value for argument '_filter_number'
+2021-11-30 17:04:22 [INFO] <srouter>: will attempt to find value for argument '_filter_name'
+2021-11-30 17:04:22 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:04:22 [INFO] <srouter>: will transform and return output...
+2021-11-30 17:05:10 [INFO] <srouter>: will build the request
+2021-11-30 17:05:10 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 17:05:10 [INFO] <srouter>: will map POST : contacts to a route
+2021-11-30 17:05:10 [INFO] <srouter>: will perform authorization
+2021-11-30 17:05:10 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:05:10 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 17:05:10 [INFO] <srouter>: will attempt to find value for argument '_name'
+2021-11-30 17:05:10 [INFO] <srouter>: will attempt to find value for argument '_phone'
+2021-11-30 17:05:10 [INFO] <srouter>: will attempt to find value for argument '_company'
+2021-11-30 17:05:10 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:05:10 [INFO] <srouter>: will transform and return output...
+2021-11-30 17:05:14 [INFO] <srouter>: will build the request
+2021-11-30 17:05:14 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 17:05:14 [INFO] <srouter>: will map POST : contacts to a route
+2021-11-30 17:05:14 [INFO] <srouter>: will perform authorization
+2021-11-30 17:05:14 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:05:14 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 17:05:14 [INFO] <srouter>: will attempt to find value for argument '_name'
+2021-11-30 17:05:14 [INFO] <srouter>: will attempt to find value for argument '_phone'
+2021-11-30 17:05:14 [INFO] <srouter>: will attempt to find value for argument '_company'
+2021-11-30 17:05:14 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:05:14 [INFO] <srouter>: will transform and return output...
+2021-11-30 17:05:56 [INFO] <srouter>: will build the request
+2021-11-30 17:05:56 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 17:05:56 [INFO] <srouter>: will map POST : contacts to a route
+2021-11-30 17:05:56 [INFO] <srouter>: will perform authorization
+2021-11-30 17:05:56 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:05:56 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 17:05:56 [INFO] <srouter>: will attempt to find value for argument '_name'
+2021-11-30 17:05:56 [INFO] <srouter>: will attempt to find value for argument '_phone'
+2021-11-30 17:05:56 [INFO] <srouter>: will attempt to find value for argument '_company'
+2021-11-30 17:05:56 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:05:56 [INFO] <srouter>: will transform and return output...
+2021-11-30 17:05:59 [INFO] <srouter>: will build the request
+2021-11-30 17:05:59 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 17:05:59 [INFO] <srouter>: will map POST : contacts to a route
+2021-11-30 17:05:59 [INFO] <srouter>: will perform authorization
+2021-11-30 17:05:59 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:05:59 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 17:05:59 [INFO] <srouter>: will attempt to find value for argument '_name'
+2021-11-30 17:05:59 [INFO] <srouter>: will attempt to find value for argument '_phone'
+2021-11-30 17:05:59 [INFO] <srouter>: will attempt to find value for argument '_company'
+2021-11-30 17:05:59 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:05:59 [INFO] <srouter>: will transform and return output...
+2021-11-30 17:06:02 [INFO] <srouter>: will build the request
+2021-11-30 17:06:02 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 17:06:02 [INFO] <srouter>: will map GET : contacts to a route
+2021-11-30 17:06:02 [INFO] <srouter>: will perform authorization
+2021-11-30 17:06:02 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:06:02 [NOTICE] <srouter>: will extract arguments with 'query'
+2021-11-30 17:06:02 [INFO] <srouter>: will attempt to find value for argument '_filter_number'
+2021-11-30 17:06:02 [INFO] <srouter>: will attempt to find value for argument '_filter_name'
+2021-11-30 17:06:02 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:06:02 [INFO] <srouter>: will transform and return output...
+2021-11-30 17:06:12 [INFO] <srouter>: will build the request
+2021-11-30 17:06:12 [INFO] <srouter>: http://localhost/php-router/example/contacts/1 becomes contacts/1
+2021-11-30 17:06:12 [INFO] <srouter>: will map GET : contacts/1 to a route
+2021-11-30 17:06:12 [INFO] <srouter>: will perform authorization
+2021-11-30 17:06:12 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:06:12 [NOTICE] <srouter>: will extract arguments with 'uri'
+2021-11-30 17:07:43 [INFO] <srouter>: will build the request
+2021-11-30 17:07:43 [INFO] <srouter>: http://localhost/php-router/example/contacts/1 becomes contacts/1
+2021-11-30 17:07:43 [INFO] <srouter>: will map GET : contacts/1 to a route
+2021-11-30 17:07:43 [INFO] <srouter>: will perform authorization
+2021-11-30 17:07:43 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:07:43 [NOTICE] <srouter>: will extract arguments with 'uri'
+2021-11-30 17:08:05 [INFO] <srouter>: will build the request
+2021-11-30 17:08:05 [INFO] <srouter>: http://localhost/php-router/example/contacts/1 becomes contacts/1
+2021-11-30 17:08:05 [INFO] <srouter>: will map GET : contacts/1 to a route
+2021-11-30 17:08:05 [INFO] <srouter>: will perform authorization
+2021-11-30 17:08:05 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:08:05 [NOTICE] <srouter>: will extract arguments with 'uri'
+2021-11-30 17:09:50 [INFO] <srouter>: will build the request
+2021-11-30 17:09:50 [INFO] <srouter>: http://localhost/php-router/example/contacts/1 becomes contacts/1
+2021-11-30 17:09:50 [INFO] <srouter>: will map GET : contacts/1 to a route
+2021-11-30 17:09:50 [INFO] <srouter>: will perform authorization
+2021-11-30 17:09:50 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:09:50 [NOTICE] <srouter>: will extract arguments with 'uri'
+2021-11-30 17:09:50 [INFO] <srouter>: attempting to handle 'ParseError' with srouter\default_exception_handler
+2021-11-30 17:09:50 [WARNING] <>: syntax error, unexpected 'if' (T_IF) (ParseError, /home/daniel/devel/htdocs/php-router/src/srouter/parameter_maker.php:75) caught by default error handler
+2021-11-30 17:10:02 [INFO] <srouter>: will build the request
+2021-11-30 17:10:02 [INFO] <srouter>: http://localhost/php-router/example/contacts/1 becomes contacts/1
+2021-11-30 17:10:02 [INFO] <srouter>: will map GET : contacts/1 to a route
+2021-11-30 17:10:02 [INFO] <srouter>: will perform authorization
+2021-11-30 17:10:02 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:10:02 [NOTICE] <srouter>: will extract arguments with 'uri'
+2021-11-30 17:10:02 [INFO] <srouter>: attempting to handle 'srouter\exception\missing_compulsory_parameter' with srouter\default_exception_handler
+2021-11-30 17:10:02 [WARNING] <default_exception_handler>: missing compulsory parameter 'id' (srouter\exception\missing_compulsory_parameter)
+2021-11-30 17:10:20 [INFO] <srouter>: will build the request
+2021-11-30 17:10:20 [INFO] <srouter>: http://localhost/php-router/example/contacts/1 becomes contacts/1
+2021-11-30 17:10:20 [INFO] <srouter>: will map GET : contacts/1 to a route
+2021-11-30 17:10:20 [INFO] <srouter>: will perform authorization
+2021-11-30 17:10:20 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:10:20 [NOTICE] <srouter>: will extract arguments with 'uri'
+2021-11-30 17:10:20 [INFO] <srouter>: will attempt to find value for argument '_id'
+2021-11-30 17:10:20 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:10:20 [INFO] <srouter>: will transform and return output...
+2021-11-30 17:10:25 [INFO] <srouter>: will build the request
+2021-11-30 17:10:25 [INFO] <srouter>: http://localhost/php-router/example/contacts/2 becomes contacts/2
+2021-11-30 17:10:25 [INFO] <srouter>: will map GET : contacts/2 to a route
+2021-11-30 17:10:25 [INFO] <srouter>: will perform authorization
+2021-11-30 17:10:25 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:10:25 [NOTICE] <srouter>: will extract arguments with 'uri'
+2021-11-30 17:10:25 [INFO] <srouter>: will attempt to find value for argument '_id'
+2021-11-30 17:10:25 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:10:25 [INFO] <srouter>: will transform and return output...
+2021-11-30 17:11:13 [INFO] <srouter>: will build the request
+2021-11-30 17:11:13 [INFO] <srouter>: http://localhost/php-router/example/contacts/2 becomes contacts/2
+2021-11-30 17:11:13 [INFO] <srouter>: will map PATCH : contacts/2 to a route
+2021-11-30 17:11:13 [INFO] <srouter>: will perform authorization
+2021-11-30 17:11:13 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:11:13 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 17:11:13 [INFO] <srouter>: attempting to handle 'srouter\exception\bad_parameter_type' with srouter\default_exception_handler
+2021-11-30 17:11:13 [WARNING] <default_exception_handler>: bad parameter type for 'name' (srouter\exception\bad_parameter_type)
+2021-11-30 17:12:06 [INFO] <srouter>: will build the request
+2021-11-30 17:12:06 [INFO] <srouter>: http://localhost/php-router/example/contacts/2 becomes contacts/2
+2021-11-30 17:12:06 [INFO] <srouter>: will map PATCH : contacts/2 to a route
+2021-11-30 17:12:06 [INFO] <srouter>: will perform authorization
+2021-11-30 17:12:06 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:12:06 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 17:12:06 [INFO] <srouter>: will attempt to find value for argument '_id'
+2021-11-30 17:12:06 [INFO] <srouter>: will attempt to find value for argument '_name'
+2021-11-30 17:12:06 [INFO] <srouter>: will attempt to find value for argument '_phone'
+2021-11-30 17:12:06 [INFO] <srouter>: will attempt to find value for argument '_company'
+2021-11-30 17:12:06 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:12:06 [INFO] <srouter>: will transform and return output...
+2021-11-30 17:12:11 [INFO] <srouter>: will build the request
+2021-11-30 17:12:11 [INFO] <srouter>: http://localhost/php-router/example/contacts/2 becomes contacts/2
+2021-11-30 17:12:11 [INFO] <srouter>: will map GET : contacts/2 to a route
+2021-11-30 17:12:11 [INFO] <srouter>: will perform authorization
+2021-11-30 17:12:11 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:12:11 [NOTICE] <srouter>: will extract arguments with 'uri'
+2021-11-30 17:12:11 [INFO] <srouter>: will attempt to find value for argument '_id'
+2021-11-30 17:12:11 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:12:11 [INFO] <srouter>: will transform and return output...
+2021-11-30 17:12:17 [INFO] <srouter>: will build the request
+2021-11-30 17:12:17 [INFO] <srouter>: http://localhost/php-router/example/contacts/1 becomes contacts/1
+2021-11-30 17:12:17 [INFO] <srouter>: will map PATCH : contacts/1 to a route
+2021-11-30 17:12:17 [INFO] <srouter>: will perform authorization
+2021-11-30 17:12:17 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:12:17 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 17:12:17 [INFO] <srouter>: will attempt to find value for argument '_id'
+2021-11-30 17:12:17 [INFO] <srouter>: will attempt to find value for argument '_name'
+2021-11-30 17:12:17 [INFO] <srouter>: will attempt to find value for argument '_phone'
+2021-11-30 17:12:17 [INFO] <srouter>: will attempt to find value for argument '_company'
+2021-11-30 17:12:17 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:12:17 [INFO] <srouter>: will transform and return output...
+2021-11-30 17:12:22 [INFO] <srouter>: will build the request
+2021-11-30 17:12:22 [INFO] <srouter>: http://localhost/php-router/example/contacts/2 becomes contacts/2
+2021-11-30 17:12:22 [INFO] <srouter>: will map GET : contacts/2 to a route
+2021-11-30 17:12:22 [INFO] <srouter>: will perform authorization
+2021-11-30 17:12:22 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:12:22 [NOTICE] <srouter>: will extract arguments with 'uri'
+2021-11-30 17:12:22 [INFO] <srouter>: will attempt to find value for argument '_id'
+2021-11-30 17:12:22 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:12:22 [INFO] <srouter>: will transform and return output...
+2021-11-30 17:12:26 [INFO] <srouter>: will build the request
+2021-11-30 17:12:26 [INFO] <srouter>: http://localhost/php-router/example/contacts/1 becomes contacts/1
+2021-11-30 17:12:26 [INFO] <srouter>: will map GET : contacts/1 to a route
+2021-11-30 17:12:26 [INFO] <srouter>: will perform authorization
+2021-11-30 17:12:26 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:12:26 [NOTICE] <srouter>: will extract arguments with 'uri'
+2021-11-30 17:12:26 [INFO] <srouter>: will attempt to find value for argument '_id'
+2021-11-30 17:12:26 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:12:26 [INFO] <srouter>: will transform and return output...
+2021-11-30 17:12:38 [INFO] <srouter>: will build the request
+2021-11-30 17:12:38 [INFO] <srouter>: http://localhost/php-router/example/contacts/1 becomes contacts/1
+2021-11-30 17:12:38 [INFO] <srouter>: will map PATCH : contacts/1 to a route
+2021-11-30 17:12:38 [INFO] <srouter>: will perform authorization
+2021-11-30 17:12:38 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:12:38 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 17:12:38 [INFO] <srouter>: will attempt to find value for argument '_id'
+2021-11-30 17:12:38 [INFO] <srouter>: will attempt to find value for argument '_name'
+2021-11-30 17:12:38 [INFO] <srouter>: will attempt to find value for argument '_phone'
+2021-11-30 17:12:38 [INFO] <srouter>: will attempt to find value for argument '_company'
+2021-11-30 17:12:38 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:12:38 [INFO] <srouter>: will transform and return output...
+2021-11-30 17:12:41 [INFO] <srouter>: will build the request
+2021-11-30 17:12:41 [INFO] <srouter>: http://localhost/php-router/example/contacts/1 becomes contacts/1
+2021-11-30 17:12:41 [INFO] <srouter>: will map GET : contacts/1 to a route
+2021-11-30 17:12:41 [INFO] <srouter>: will perform authorization
+2021-11-30 17:12:41 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:12:41 [NOTICE] <srouter>: will extract arguments with 'uri'
+2021-11-30 17:12:41 [INFO] <srouter>: will attempt to find value for argument '_id'
+2021-11-30 17:12:41 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:12:41 [INFO] <srouter>: will transform and return output...
+2021-11-30 17:15:34 [INFO] <srouter>: will build the request
+2021-11-30 17:15:34 [INFO] <srouter>: http://localhost/php-router/example/contacts/1 becomes contacts/1
+2021-11-30 17:15:34 [INFO] <srouter>: will map PATCH : contacts/1 to a route
+2021-11-30 17:15:34 [INFO] <srouter>: will perform authorization
+2021-11-30 17:15:34 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:15:34 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 17:15:34 [INFO] <srouter>: will attempt to find value for argument '_id'
+2021-11-30 17:15:34 [INFO] <srouter>: will attempt to find value for argument '_name'
+2021-11-30 17:15:34 [INFO] <srouter>: will attempt to find value for argument '_phone'
+2021-11-30 17:15:34 [INFO] <srouter>: will attempt to find value for argument '_company'
+2021-11-30 17:15:34 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:15:34 [INFO] <srouter>: attempting to handle 'ArgumentCountError' with srouter\default_exception_handler
+2021-11-30 17:15:34 [WARNING] <>: Too few arguments to function rolodex\rolodex::write(), 0 passed in /home/daniel/devel/htdocs/php-router/example/src/rolodex/rolodex.php on line 115 and exactly 1 expected (ArgumentCountError, /home/daniel/devel/htdocs/php-router/example/src/rolodex/rolodex.php:176) caught by default error handler
+2021-11-30 17:16:29 [INFO] <srouter>: will build the request
+2021-11-30 17:16:29 [INFO] <srouter>: http://localhost/php-router/example/contacts/1 becomes contacts/1
+2021-11-30 17:16:29 [INFO] <srouter>: will map PATCH : contacts/1 to a route
+2021-11-30 17:16:29 [INFO] <srouter>: will perform authorization
+2021-11-30 17:16:29 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:16:29 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 17:16:29 [INFO] <srouter>: will attempt to find value for argument '_id'
+2021-11-30 17:16:29 [INFO] <srouter>: will attempt to find value for argument '_name'
+2021-11-30 17:16:29 [INFO] <srouter>: will attempt to find value for argument '_phone'
+2021-11-30 17:16:29 [INFO] <srouter>: will attempt to find value for argument '_company'
+2021-11-30 17:16:29 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:16:29 [INFO] <srouter>: will transform and return output...
+2021-11-30 17:16:58 [INFO] <srouter>: will build the request
+2021-11-30 17:16:58 [INFO] <srouter>: http://localhost/php-router/example/contacts/1 becomes contacts/1
+2021-11-30 17:16:58 [INFO] <srouter>: will map PATCH : contacts/1 to a route
+2021-11-30 17:16:58 [INFO] <srouter>: will perform authorization
+2021-11-30 17:16:58 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:16:58 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 17:16:58 [INFO] <srouter>: will attempt to find value for argument '_id'
+2021-11-30 17:16:58 [INFO] <srouter>: will attempt to find value for argument '_name'
+2021-11-30 17:16:58 [INFO] <srouter>: will attempt to find value for argument '_phone'
+2021-11-30 17:16:58 [INFO] <srouter>: will attempt to find value for argument '_company'
+2021-11-30 17:16:58 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:16:58 [INFO] <srouter>: will transform and return output...
+2021-11-30 17:17:14 [INFO] <srouter>: will build the request
+2021-11-30 17:17:14 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 17:17:14 [INFO] <srouter>: will map GET : contacts to a route
+2021-11-30 17:17:14 [INFO] <srouter>: will perform authorization
+2021-11-30 17:17:14 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:17:14 [NOTICE] <srouter>: will extract arguments with 'query'
+2021-11-30 17:17:14 [INFO] <srouter>: will attempt to find value for argument '_filter_number'
+2021-11-30 17:17:14 [INFO] <srouter>: will attempt to find value for argument '_filter_name'
+2021-11-30 17:17:14 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:17:14 [INFO] <srouter>: will transform and return output...
+2021-11-30 17:17:23 [INFO] <srouter>: will build the request
+2021-11-30 17:17:23 [INFO] <srouter>: http://localhost/php-router/example/contacts/1 becomes contacts/1
+2021-11-30 17:17:23 [INFO] <srouter>: will map PATCH : contacts/1 to a route
+2021-11-30 17:17:23 [INFO] <srouter>: will perform authorization
+2021-11-30 17:17:23 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:17:23 [NOTICE] <srouter>: will extract arguments with 'json'
+2021-11-30 17:17:23 [INFO] <srouter>: will attempt to find value for argument '_id'
+2021-11-30 17:17:23 [INFO] <srouter>: will attempt to find value for argument '_name'
+2021-11-30 17:17:23 [INFO] <srouter>: will attempt to find value for argument '_phone'
+2021-11-30 17:17:23 [INFO] <srouter>: will attempt to find value for argument '_company'
+2021-11-30 17:17:23 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:17:23 [INFO] <srouter>: will transform and return output...
+2021-11-30 17:17:26 [INFO] <srouter>: will build the request
+2021-11-30 17:17:26 [INFO] <srouter>: http://localhost/php-router/example/contacts becomes contacts
+2021-11-30 17:17:26 [INFO] <srouter>: will map GET : contacts to a route
+2021-11-30 17:17:26 [INFO] <srouter>: will perform authorization
+2021-11-30 17:17:26 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:17:26 [NOTICE] <srouter>: will extract arguments with 'query'
+2021-11-30 17:17:26 [INFO] <srouter>: will attempt to find value for argument '_filter_number'
+2021-11-30 17:17:26 [INFO] <srouter>: will attempt to find value for argument '_filter_name'
+2021-11-30 17:17:26 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:17:26 [INFO] <srouter>: will transform and return output...
+2021-11-30 17:17:42 [INFO] <srouter>: will build the request
+2021-11-30 17:17:42 [INFO] <srouter>: http://localhost/php-router/example/contacts/1 becomes contacts/1
+2021-11-30 17:17:42 [INFO] <srouter>: will map DELETE : contacts/1 to a route
+2021-11-30 17:17:42 [INFO] <srouter>: will perform authorization
+2021-11-30 17:17:42 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:17:42 [NOTICE] <srouter>: will extract arguments with 'uri'
+2021-11-30 17:17:42 [INFO] <srouter>: will attempt to find value for argument '_id'
+2021-11-30 17:17:42 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:17:42 [INFO] <srouter>: will transform and return output...
+2021-11-30 17:17:50 [INFO] <srouter>: will build the request
+2021-11-30 17:17:50 [INFO] <srouter>: http://localhost/php-router/example/contacts/1 becomes contacts/1
+2021-11-30 17:17:50 [INFO] <srouter>: will map DELETE : contacts/1 to a route
+2021-11-30 17:17:50 [INFO] <srouter>: will perform authorization
+2021-11-30 17:17:50 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:17:50 [NOTICE] <srouter>: will extract arguments with 'uri'
+2021-11-30 17:17:50 [INFO] <srouter>: will attempt to find value for argument '_id'
+2021-11-30 17:17:50 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:17:50 [INFO] <srouter>: will transform and return output...
+2021-11-30 17:17:53 [INFO] <srouter>: will build the request
+2021-11-30 17:17:53 [INFO] <srouter>: http://localhost/php-router/example/contacts/2 becomes contacts/2
+2021-11-30 17:17:53 [INFO] <srouter>: will map DELETE : contacts/2 to a route
+2021-11-30 17:17:53 [INFO] <srouter>: will perform authorization
+2021-11-30 17:17:53 [INFO] <srouter>: will authorize using logged_in
+2021-11-30 17:17:53 [NOTICE] <srouter>: will extract arguments with 'uri'
+2021-11-30 17:17:53 [INFO] <srouter>: will attempt to find value for argument '_id'
+2021-11-30 17:17:53 [INFO] <srouter>: will perform execution now...
+2021-11-30 17:17:53 [INFO] <srouter>: will transform and return output...
