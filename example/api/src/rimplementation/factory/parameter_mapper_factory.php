@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace rimplementation\factory;
 
 use srouter\interfaces\parameter_mapper;

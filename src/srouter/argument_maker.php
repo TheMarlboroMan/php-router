@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace srouter;
 
 /**
@@ -58,11 +59,13 @@ class argument_maker {
 *attempts to extract a uri-specific argument by name, because I love those.
 *check the uri_argument class to learn about them. The path mapper can identify
 *these and, if so, return them into a map. This just looks into such a map and
-*returns the value if found, null if not.
+*returns the value if found, null if not. If the parameter argument is provided
+*a type check will be attempted.
 */
 	public function  find_uri_argument(
 		string $_name,
-		array $_parameters
+		array $_parameters,
+		?\srouter\parameter $_parameter
 	) {
 
 		$found=array_filter(
@@ -78,21 +81,32 @@ class argument_maker {
 			return null;
 		}
 
-		return array_shift($found)->get_value();
+		$value=array_shift($found)->get_value();
+		return null!==$_parameter
+			? $this->check_and_convert_url_type($value, $_parameter)
+			: $value;
 	}
 
 /**
 *attempts to find an argument in the query string and returns null if cannot
-*find it.
+*find it. If the parameter argument is provided
+*a type check will be attempted.
 */
 	public function	find_query_argument(
 		string $_name,
-		\srouter\interfaces\request $_request
+		\srouter\interfaces\request $_request,
+		?\srouter\parameter $_parameter
 	) {
 
-		return $_request->has_query($_name)
-			? $_request->get_query($_name)
-			: null;
+		if(!$_request->has_query($_name)) {
+
+			return null;
+		}
+
+		$value=$_request->get_query($_name);
+		return null!==$_parameter
+			? $this->check_and_convert_url_type($value, $_parameter)
+			: $value;
 	}
 
 	private function type_check(
@@ -152,5 +166,59 @@ class argument_maker {
 		}
 
 		return $_value;
+	}
+
+	private function check_and_convert_url_type(
+		string $_value,
+		\srouter\parameter $_parameter
+	) {
+
+		switch($_parameter->get_type()) {
+
+			case \srouter\parameter::type_any:
+
+				return $_value;
+			break;
+			case \srouter\parameter::type_string:
+
+				return (string)$_value;
+			break;
+			case \srouter\parameter::type_int:
+
+				if(!ctype_digit($_value)) {
+
+					throw new \srouter\exception\bad_argument_type("bad argument type, expected integer, got '$value'");
+				}
+
+				return (int)$_value;
+			break;
+			case \srouter\parameter::type_bool:
+				//uses the literals true and false...
+				if($_value==="true") {
+
+					return true;
+				}
+				else if($_value==="false") {
+
+					return false;
+				}
+
+				throw new \srouter\exception\bad_argument_type("bad argument type, expected boolean but got '$_value' and could not be converted");
+			break;
+			case \srouter\parameter::type_double:
+
+				if(!is_numeric($_value)) {
+
+					throw new \srouter\exception\bad_argument_type("bad argument type, expected double, got '$_value'.");
+				}
+
+				return (double)$_value;
+			break;
+			case \srouter\parameter::type_array:
+
+				//Arrays cannot be expressed here...
+				throw new \srouter\exception\bad_argument_type("bad argument type, expected array but could not be expressed");
+			break;
+		}
 	}
 }

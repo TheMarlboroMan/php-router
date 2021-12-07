@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace rimplementation\providers;
 
 class query_only_argument_extractor implements \srouter\interfaces\argument_extractor {
@@ -18,7 +19,7 @@ class query_only_argument_extractor implements \srouter\interfaces\argument_extr
 
 		if($_argument->get_source()==="query") {
 
-			$value=$this->argument_maker->find_query_argument($name, $_request);
+			$value=$this->argument_maker->find_query_argument($name, $_request, $_argument);
 			return $this->argument_maker->make_argument($value, $_argument);
 		}
 

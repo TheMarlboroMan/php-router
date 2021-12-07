@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace rimplementation\factory;
 
 class exception_handler_factory implements \srouter\interfaces\exception_handler_factory {

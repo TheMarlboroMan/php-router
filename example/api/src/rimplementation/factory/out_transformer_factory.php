@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace rimplementation\factory;
 
 class out_transformer_factory implements \srouter\interfaces\out_transformer_factory {

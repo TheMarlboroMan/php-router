@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace rimplementation\providers;
 
 class parameter_mapper_underscore implements \srouter\interfaces\parameter_mapper {

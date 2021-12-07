@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace rimplementation\factory;
 
 class controller_factory implements \srouter\interfaces\controller_factory {

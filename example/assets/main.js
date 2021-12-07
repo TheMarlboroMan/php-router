@@ -215,7 +215,11 @@ class rolodex {
 
 			if(200!==_res.status) {
 
-				throw new Error("invalid login");
+				_res.text().then( (_txt) => {
+
+					throw new Error(_txt);
+				})
+				.catch( (_res) => {throw _res;});
 			}
 
 			this.auth_token=_res.headers.get("auth-token");

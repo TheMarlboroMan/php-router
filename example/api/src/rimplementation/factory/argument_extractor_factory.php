@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace rimplementation\factory;
 
 class argument_extractor_factory implements \srouter\interfaces\argument_extractor_factory {

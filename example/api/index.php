@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 //read this file and whatever this file points to to learn the ropes for this.
 //first off, very important, know that there's an .htaccess file redirecting
 //everything here.

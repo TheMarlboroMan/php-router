@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace srouter;
 
 /**
@@ -26,7 +27,7 @@ class http_response {
 
 		header("HTTP/1.1 {$this->status_code} {$this->translate_code($this->status_code)}");
 		foreach($this->headers as $header) {
-			header($header);
+			header((string)$header);
 		}
 
 		echo $this->body.PHP_EOL;

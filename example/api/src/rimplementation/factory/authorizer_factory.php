@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace rimplementation\factory;
 
 class authorizer_factory implements \srouter\interfaces\authorizer_factory {

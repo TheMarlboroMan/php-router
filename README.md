@@ -92,6 +92,10 @@ The router will attempt to locate arguments in the request for all your method p
 
 The example is yes another contact manager yay. Should be easy enough to setup given that the proper permissions are given to the data directory.
 
+### one word of advice:
+
+The example IS NOT PRODUCTION WORTHY! There are countless holes there, please, do not ever that code in production!
+
 ### setting it up: dependencies
 
 Ok, let's start by checking the example/src/external/what-goes-here file. Just follow the instructions there: clone the repositories, move the files as described and you're done.

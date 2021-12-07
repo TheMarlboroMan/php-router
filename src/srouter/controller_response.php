@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace srouter;
 
 /**
@@ -24,13 +25,13 @@ class controller_response {
 *returns the status code, which should really be the same as a standard HTTP
 *status code.
 */
-	public function     get_status_code() : string{
+	public function     get_status_code() : int{
 
 		return $this->status_code;
 	}
 
 /**
-*returns the headers. The whole system expects these to be of 
+*returns the headers. The whole system expects these to be of
 *http_response_header type.
 */
 	public function     get_headers() : array {

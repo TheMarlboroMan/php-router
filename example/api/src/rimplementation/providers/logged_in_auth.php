@@ -1,7 +1,6 @@
 <?php
+declare(strict_types=1);
 namespace rimplementation\providers;
-
-use srouter\interfaces\request;
 
 class logged_in_auth implements \srouter\interfaces\authorizer {
 
