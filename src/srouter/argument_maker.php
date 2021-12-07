@@ -187,7 +187,7 @@ class argument_maker {
 
 				if(!ctype_digit($_value)) {
 
-					throw new \srouter\exception\bad_argument_type("bad argument type, expected integer, got '$value'");
+					throw new \srouter\exception\bad_argument_type("bad argument type, expected integer, got '$_value'");
 				}
 
 				return (int)$_value;
