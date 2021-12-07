@@ -12,6 +12,8 @@ namespace srouter;
 
 class argument_maker {
 
+	use \srouter\traits\strict;
+
 /**
 *returns a mixed value that will go as an argument in a method call.
 */

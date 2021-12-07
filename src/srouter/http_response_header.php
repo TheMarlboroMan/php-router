@@ -8,6 +8,8 @@ namespace srouter;
 
 class http_response_header {
 
+	use \srouter\traits\strict;
+
 	public function __construct(
 		string $_name,
 		string $_value

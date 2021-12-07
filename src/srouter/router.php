@@ -11,6 +11,8 @@ namespace srouter;
 
 class router {
 
+	use \srouter\traits\strict;
+
 	private const log_module="srouter";
 
 	public function __construct(

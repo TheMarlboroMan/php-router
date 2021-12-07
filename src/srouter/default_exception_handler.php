@@ -11,6 +11,8 @@ namespace srouter;
 
 class default_exception_handler implements \srouter\interfaces\exception_handler {
 
+	use \srouter\traits\strict;
+
 	private const log_module="default_exception_handler";
 
 	public function __construct(

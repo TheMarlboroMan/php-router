@@ -12,6 +12,8 @@ namespace srouter;
 
 class route {
 
+	use \srouter\traits\strict;
+
 	public function __construct(
 		string $_classname,
 		string $_methodname,

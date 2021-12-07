@@ -10,6 +10,8 @@ namespace srouter;
 
 class controller_response {
 
+	use \srouter\traits\strict;
+
 	public function     __construct(
 		int $_code,
 		array $_headers, //of http_response_header type!

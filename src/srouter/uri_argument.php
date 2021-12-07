@@ -12,6 +12,8 @@ namespace srouter;
 
 class uri_argument {
 
+	use \srouter\traits\strict;
+
 	public function __construct(
 		string $_name,
 		$_value

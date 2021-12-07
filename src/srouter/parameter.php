@@ -12,6 +12,8 @@ namespace srouter;
 
 class parameter {
 
+	use \srouter\traits\strict;
+
 	public const    type_any=0;
 	public const    type_int=1;
 	public const    type_bool=2;

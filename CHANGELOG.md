@@ -14,9 +14,10 @@ Changes will be documented under Added, Changed, Deprecated, Removed, Fixed or S
 - Specify out_transformers for exception handlers.
 - Enforce route class arrays are of the specified type?
 
-## [v0.1.3]: 2021-12-06
+## [v0.1.3]: 2021-12-07
 ### Changed
 - all types are strict now.
+- strict trait is applied
 - uri and query string parameters can be checked against their type.
 
 ## [v0.1.2]: 2021-12-06
